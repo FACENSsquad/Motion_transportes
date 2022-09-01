@@ -3,6 +3,7 @@ package TELAS;
 
 import BEANS.Motorista;
 import CONEXAO.Conexao;
+import javax.swing.JOptionPane;
 
 public class Frame_cadastrarMotorista extends javax.swing.JFrame {
 
@@ -19,7 +20,29 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
         
         motorista.setNome(Caixa_nome.getText());
         motorista.setTelefone(Caixa_telefone.getText());
+        
+        try {
+            
+            this.conectar.insertSQL("INSERT INTO motorista ("
+                    + "nome,"
+                    + "telefone"
+                    + ") VALUES ("
+                    + "'" + motorista.getNome() + "',"
+                    + "'" + motorista.getTelefone()+ "',"
+                    + ");");
+            
+            
+        } catch (Exception e) {
+            
+            System.out.println("Erro ao cadastrar motorista" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar motorista");
+            
+        } finally {
+            this.conectar.fechaBanco();
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+        }
     
+        
     }
 
    

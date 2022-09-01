@@ -1,7 +1,6 @@
 
 package BEANS;
 
-import javax.swing.JTextField;
 
 
 public class Motorista {
