@@ -1,11 +1,22 @@
 
 package BEANS;
 
+import javax.swing.JTextField;
+
 
 public class Motorista {
     
     private String nome;
     private String telefone;
+    private String placa_asc;
+
+    public String getPlaca_asc() {
+        return placa_asc;
+    }
+
+    public void setPlaca_asc(String placa_asc) {
+        this.placa_asc = placa_asc;
+    }
 
     public String getNome() {
         return nome;
@@ -22,6 +33,5 @@ public class Motorista {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
     
 }

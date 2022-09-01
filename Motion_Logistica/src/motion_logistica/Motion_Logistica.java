@@ -9,8 +9,8 @@ public class Motion_Logistica {
     
     public static void main(String[] args) {
         
-        Conexao conec = new Conexao();
-        conec.conectaBanco();
+        Conexao conectar = new Conexao();
+        conectar.conectaBanco();
         
     }
     
