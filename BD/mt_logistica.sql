@@ -7,7 +7,6 @@ create table usuario(
 	nome varchar(150) unique,
     email varchar(150) not null unique,
     senha varchar(50) not null unique,
-    id_motorista int,
     
     primary key (id)
 );
@@ -16,7 +15,6 @@ create table motorista(
 	id int auto_increment,
     nome varchar(150) unique ,
     telefone varchar(20) not null,
-    id_usuario int,
     
     primary key(id)
 );
