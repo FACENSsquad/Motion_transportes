@@ -3,33 +3,42 @@ package TELAS;
 
 import BEANS.Motorista;
 import CONEXAO.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 public class Frame_cadastrarMotorista extends javax.swing.JFrame {
 
-       Conexao conectar = new Conexao(); //acessar os métodos de conexao com o banco
-       Motorista motorista = new Motorista(); //acessar os atributos da classe Motorista
-    
+       
+       
     public Frame_cadastrarMotorista() {
         initComponents();
     }
     
+       private Connection conn;
+       private Conexao conexao;
+       
+       Motorista motorista = new Motorista(); //acessar os atributos da classe Motorista
+       
+    
     public void Cadastrar_Motorista(Motorista motorista){
     
-        this.conectar.conectaBanco();
+        this.conexao = new Conexao();
+        this.conn = this.conexao.mt_Conexao();
+        
         
         motorista.setNome(Caixa_nome.getText());
         motorista.setTelefone(Caixa_telefone.getText());
         
+        String sql = "insert into motorista(nome, telefone) values "
+                   + "(?, ?)";
+        
         try {
-            
-            this.conectar.insertSQL("INSERT INTO motorista ("
-                    + "nome,"
-                    + "telefone"
-                    + ") VALUES ("
-                    + "'" + motorista.getNome() + "',"
-                    + "'" + motorista.getTelefone()+ "',"
-                    + ");");
+            PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setString(1, motorista.getNome());
+            pst.setString(2, motorista.getTelefone());
+           
+            pst.execute();
             
             
         } catch (Exception e) {
@@ -38,7 +47,7 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar motorista");
             
         } finally {
-            this.conectar.fechaBanco();
+            this.conexao.fecha_mt();
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
         }
     
@@ -54,6 +63,7 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Caixa_nome = new javax.swing.JTextField();
         Caixa_telefone = new javax.swing.JTextField();
+        Cadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,22 +71,32 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
 
         jLabel2.setText("Telefone:");
 
+        Cadastrar.setText("Cadastrar");
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Caixa_nome)
-                    .addComponent(Caixa_telefone, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel2)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Caixa_nome)
+                            .addComponent(Caixa_telefone, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,11 +110,17 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Caixa_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        Cadastrar_Motorista(motorista);
+    }//GEN-LAST:event_CadastrarActionPerformed
 
    
     public static void main(String args[]) {
@@ -130,6 +156,7 @@ public class Frame_cadastrarMotorista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField Caixa_nome;
     private javax.swing.JTextField Caixa_telefone;
     private javax.swing.JLabel jLabel1;

@@ -10,8 +10,48 @@ import javax.swing.JOptionPane;
 
 public class Conexao {
     
-    //atributos de conexão com o banco
-    private Connection conn = null; //variável de conexão com o banco
+    
+    Connection conn;
+    public Connection mt_Conexao(){
+        try{
+            // Tentar estabelecer conexão
+
+           conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/mt_logistica?serverTimezone=UTC",  // linha de conexão
+                "root", // usuario do MySQL
+                "" // senha do MySQL
+            );
+            System.out.println("Conexão efetuada com sucesso.");
+            return conn;
+        } 
+        catch(Exception e){
+            // Se der erro exiba:
+            System.out.println("Erro ao conectar"+ e.getMessage());
+            return null;
+        }
+    }
+    
+    public boolean fecha_mt(){
+        
+        try {
+            
+            conn.close();
+            System.out.println("Conexão encerrada.");
+            return true;
+        } catch (Exception e) {
+            System.out.println("Erro ao fechar conexao " + e.getMessage());
+            return false;
+        }
+    }
+    
+    }
+    
+    
+    
+    
+   /* //atributos de conexão com o banco
+    
+    private Connection conn; //variável de conexão com o banco
     private Statement statement; //variável de manipulação do SQL
     private ResultSet resultSet;
     
@@ -19,6 +59,7 @@ public class Conexao {
     private String nomeDoBanco = "mt_logistica";
     private String usuario = "root";
     private String senha = "";
+     
     
     //Construtor    
     public Conexao(){
@@ -126,5 +167,5 @@ public class Conexao {
         }
         return true;
     } 
-        
-}
+       
+} */
