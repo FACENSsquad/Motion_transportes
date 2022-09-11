@@ -1,18 +1,7 @@
 
 package BEANS;
 
-/* 
-cnpj varchar(14) unique,
-    nome_fantasia varchar(250),
-    endereco varchar(250),
-    uf varchar(2),
-    cidade varchar(70),
-    ddd varchar(2) ,
-    telefone varchar(12) unique ,
-    email varchar(150) unique not null,
 
-
-*/
 public class Destinatario {
     
     private String nome;
