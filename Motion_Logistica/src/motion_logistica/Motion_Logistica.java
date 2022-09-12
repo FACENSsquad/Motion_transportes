@@ -1,7 +1,10 @@
 
 package motion_logistica;
 
-import CONEXAO.Conexao;
+import TELAS.Frame_Home;
+import TELAS.LoginScreen;
+
+
 
 
 public class Motion_Logistica {
@@ -9,8 +12,8 @@ public class Motion_Logistica {
     
     public static void main(String[] args) {
         
-        Conexao conectar = new Conexao();
-        conectar.conectaBanco();
+       LoginScreen login = new LoginScreen();
+       login.setVisible(true);
         
     }
     

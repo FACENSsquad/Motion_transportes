@@ -1,15 +1,20 @@
+DROP DATABASE IF EXISTS mt_logistica;
 create database mt_logistica;
 use mt_logistica;
 show tables;
 
 create table usuario(
-	id int auto_increment,
-	nome varchar(150) unique,
+	id int NOT NULL auto_increment,
+	nome varchar(150),
     email varchar(150) not null unique,
-    senha varchar(50) not null unique,
+    senha varchar(50) not null,
+    nivel varchar(1) NOT NULL,
     
     primary key (id)
 );
+
+INSERT INTO usuario (nome, email, senha, nivel) VALUES('Teste','teste@teste.com','teste', 0);
+INSERT INTO usuario (nome, email, senha, nivel) VALUES('Teste2','teste2@teste.com','teste', 1);
 
 create table motorista(
 	id int auto_increment,
