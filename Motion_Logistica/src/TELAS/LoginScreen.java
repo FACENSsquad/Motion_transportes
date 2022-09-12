@@ -30,70 +30,99 @@ public class LoginScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logo = new javax.swing.JLabel();
+        senha = new javax.swing.JLabel();
         senhaCampo = new javax.swing.JPasswordField();
+        border_senha = new javax.swing.JPanel();
+        email = new javax.swing.JLabel();
         loginCampo = new javax.swing.JTextField();
-        login = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        entrar = new javax.swing.JButton();
+        border_email = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(226, 226, 226));
+        getContentPane().setLayout(null);
 
+        logo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        logo.setText("MotiON");
+        getContentPane().add(logo);
+        logo.setBounds(179, 66, 86, 38);
+
+        senha.setText("Senha:");
+        getContentPane().add(senha);
+        senha.setBounds(50, 250, 48, 21);
+
+        senhaCampo.setEditable(false);
         senhaCampo.setText("teste");
+        senhaCampo.setBorder(null);
         senhaCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaCampoActionPerformed(evt);
             }
         });
+        getContentPane().add(senhaCampo);
+        senhaCampo.setBounds(100, 240, 320, 31);
 
+        border_senha.setBackground(new java.awt.Color(105, 197, 103));
+
+        javax.swing.GroupLayout border_senhaLayout = new javax.swing.GroupLayout(border_senha);
+        border_senha.setLayout(border_senhaLayout);
+        border_senhaLayout.setHorizontalGroup(
+            border_senhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+        border_senhaLayout.setVerticalGroup(
+            border_senhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(border_senha);
+        border_senha.setBounds(50, 270, 360, 3);
+
+        email.setText("Email:");
+        getContentPane().add(email);
+        email.setBounds(50, 180, 48, 21);
+
+        loginCampo.setEditable(false);
         loginCampo.setText("teste@teste.com");
+        loginCampo.setBorder(null);
         loginCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginCampoActionPerformed(evt);
             }
         });
+        getContentPane().add(loginCampo);
+        loginCampo.setBounds(100, 170, 320, 32);
 
-        login.addActionListener(new java.awt.event.ActionListener() {
+        entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
+        entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
+                entrarActionPerformed(evt);
             }
         });
+        getContentPane().add(entrar);
+        entrar.setBounds(321, 337, 87, 35);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("MotiON");
+        border_email.setBackground(new java.awt.Color(105, 197, 103));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(senhaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login))
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout border_emailLayout = new javax.swing.GroupLayout(border_email);
+        border_email.setLayout(border_emailLayout);
+        border_emailLayout.setHorizontalGroup(
+            border_emailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(loginCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(senhaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(login)
-                .addContainerGap(153, Short.MAX_VALUE))
+        border_emailLayout.setVerticalGroup(
+            border_emailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 3, Short.MAX_VALUE)
         );
+
+        getContentPane().add(border_email);
+        border_email.setBounds(50, 200, 360, 3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         try {
             String usuario_login, usuario_senha;
             usuario_login = loginCampo.getText();
@@ -127,7 +156,7 @@ public class LoginScreen extends javax.swing.JFrame {
         } catch (Exception e) {
                         System.out.println("Erro em tela de login");
         }
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_entrarActionPerformed
 
     private void senhaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCampoActionPerformed
         // TODO add your handling code here:
@@ -173,9 +202,13 @@ public class LoginScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton login;
+    private javax.swing.JPanel border_email;
+    private javax.swing.JPanel border_senha;
+    private javax.swing.JLabel email;
+    private javax.swing.JButton entrar;
     private javax.swing.JTextField loginCampo;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel senha;
     private javax.swing.JPasswordField senhaCampo;
     // End of variables declaration//GEN-END:variables
 }
