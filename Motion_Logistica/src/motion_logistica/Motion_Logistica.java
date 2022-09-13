@@ -1,13 +1,13 @@
 
 package motion_logistica;
 
-import TELAS.LoginScreen;
+import TELAS.Login;
 
 public class Motion_Logistica {
     
     public static void main(String[] args) {
         
-       LoginScreen login = new LoginScreen();
+       Login login = new Login();
        login.setVisible(true);
         
     }
