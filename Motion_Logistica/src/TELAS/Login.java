@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
 
         senha.setText("Senha:");
         getContentPane().add(senha);
-        senha.setBounds(50, 250, 48, 21);
+        senha.setBounds(40, 250, 48, 21);
 
         senhaCampo.setEditable(false);
         senhaCampo.setText("teste");
@@ -61,7 +61,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(senhaCampo);
-        senhaCampo.setBounds(100, 240, 320, 31);
+        senhaCampo.setBounds(90, 240, 320, 31);
 
         border_senha.setBackground(new java.awt.Color(105, 197, 103));
 
@@ -77,11 +77,11 @@ public class Login extends javax.swing.JFrame {
         );
 
         getContentPane().add(border_senha);
-        border_senha.setBounds(50, 270, 360, 3);
+        border_senha.setBounds(40, 270, 360, 3);
 
         email.setText("Email:");
         getContentPane().add(email);
-        email.setBounds(50, 180, 48, 21);
+        email.setBounds(40, 180, 48, 21);
 
         loginCampo.setEditable(false);
         loginCampo.setText("teste@teste.com");
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginCampo);
-        loginCampo.setBounds(100, 170, 320, 32);
+        loginCampo.setBounds(90, 170, 320, 32);
 
         entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
         entrar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         getContentPane().add(border_email);
-        border_email.setBounds(50, 200, 360, 3);
+        border_email.setBounds(40, 200, 360, 3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
