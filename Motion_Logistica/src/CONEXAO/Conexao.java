@@ -72,7 +72,7 @@ public class Conexao {
         }
     }
     
-    public boolean fechaBanco(){
+      public boolean fechaBanco(){
         try {
             conn.close();
             return true;
@@ -82,7 +82,7 @@ public class Conexao {
         }
     }
     
-    public int insertSQL(String SQL){
+       public int insertSQL(String SQL){
         int status = 0;
         try {
             //createStatement de con para criar o Statement
@@ -98,7 +98,7 @@ public class Conexao {
         }
     }
        
-    public void executarSQL(String sql) {
+        public void executarSQL(String sql) {
         try {
             this.statement = conn.createStatement(
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -112,7 +112,7 @@ public class Conexao {
         }
     }
        
-    public boolean updateSQL(String pSQL){
+       public boolean updateSQL(String pSQL){
         try {            
             //createStatement de con para criar o Statement
             this.setStatement(getConn().createStatement());
