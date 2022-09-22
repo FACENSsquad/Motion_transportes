@@ -18,6 +18,7 @@ public class Conexao {
                 "root", // usuario do MySQL
                 "" // senha do MySQL
             );
+            System.out.println("Conexão realizada");
             return conn;
         } 
         catch(Exception e){
@@ -31,6 +32,7 @@ public class Conexao {
         
         try {
             conn.close();
+            System.out.println("Conexão encerrada");
             return true;
         } catch (Exception e) {
             System.out.println("Erro ao fechar conexao " + e.getMessage());
