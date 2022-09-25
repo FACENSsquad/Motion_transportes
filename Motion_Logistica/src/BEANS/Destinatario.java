@@ -11,6 +11,7 @@ public class Destinatario {
     private String ddd;
     private String telefone;
     private String email;
+    private String cnpj;
 
     public String getNome() {
         return nome;
@@ -66,6 +67,14 @@ public class Destinatario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
     
     
