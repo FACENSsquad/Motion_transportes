@@ -84,6 +84,7 @@ public class Home extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 850));
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -98,10 +99,8 @@ public class Home extends javax.swing.JFrame {
         usuario.setText("teste");
 
         logo.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        logo.setForeground(new java.awt.Color(0, 0, 0));
         logo.setText("MotiON");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_menu.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +142,6 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 55));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 55));
 
-        Status_transito.setBackground(new java.awt.Color(255, 255, 255));
         Status_transito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_veiculos.png"))); // NOI18N
         Status_transito.setBorderPainted(false);
         Status_transito.addActionListener(new java.awt.event.ActionListener() {
@@ -152,19 +150,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        Status_coletando.setBackground(new java.awt.Color(255, 255, 255));
         Status_coletando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_coletando.png"))); // NOI18N
         Status_coletando.setBorderPainted(false);
 
-        Status_destino.setBackground(new java.awt.Color(255, 255, 255));
         Status_destino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_coletando.png"))); // NOI18N
         Status_destino.setBorderPainted(false);
 
-        Status_descarga1.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_destino.png"))); // NOI18N
         Status_descarga1.setBorderPainted(false);
 
-        Status_descarga2.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_descarga.png"))); // NOI18N
         Status_descarga2.setBorderPainted(false);
         Status_descarga2.addActionListener(new java.awt.event.ActionListener() {
@@ -173,11 +167,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        Status_descarga3.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_finalizado.png"))); // NOI18N
         Status_descarga3.setBorderPainted(false);
 
-        Status_descarga.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_alerta.png"))); // NOI18N
         Status_descarga.setBorderPainted(false);
 
@@ -376,6 +368,7 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setBounds(0, 120, 1280, 685);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
