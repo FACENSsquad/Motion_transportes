@@ -81,7 +81,7 @@ public class Frame_AdicionarRota extends javax.swing.JFrame {
         int tempo = Integer.parseInt(Tempo_viagem.getText());
         
         Home home = new Home();
-        home.Contador(placa, tempo);
+        
         
     }//GEN-LAST:event_Botton_confirmarActionPerformed
 

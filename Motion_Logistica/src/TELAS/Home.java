@@ -1,6 +1,12 @@
 
 package TELAS;
 
+import CONEXAO.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vinic
@@ -8,7 +14,35 @@ package TELAS;
 public class Home extends javax.swing.JFrame {
 
     
-   
+   private void tabela_produto(){
+        
+        DefaultTableModel model = (DefaultTableModel) Table_home.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Table_home.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select * from produto");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getInt(1),
+                   
+                   
+               });
+       
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
             
             
            
