@@ -7,7 +7,7 @@ package TELAS;
 import BEANS.LoginBean;
 import DAO.LoginDao;
 import java.sql.ResultSet;
-
+import TELAS.Mapa_1_marcador;
 /**
  *
  * @author eduar
@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         loginCampo = new javax.swing.JTextField();
         entrar = new javax.swing.JButton();
         border_email = new javax.swing.JPanel();
+        entrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(226, 226, 226));
@@ -52,7 +53,7 @@ public class Login extends javax.swing.JFrame {
 
         senha.setText("Senha:");
         getContentPane().add(senha);
-        senha.setBounds(40, 250, 48, 21);
+        senha.setBounds(40, 250, 48, 16);
 
         senhaCampo.setEditable(false);
         senhaCampo.setText("teste");
@@ -83,7 +84,7 @@ public class Login extends javax.swing.JFrame {
 
         email.setText("Email:");
         getContentPane().add(email);
-        email.setBounds(40, 180, 48, 21);
+        email.setBounds(40, 180, 48, 16);
 
         loginCampo.setEditable(false);
         loginCampo.setText("teste@teste.com");
@@ -103,7 +104,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(entrar);
-        entrar.setBounds(321, 337, 87, 35);
+        entrar.setBounds(30, 420, 90, 35);
 
         border_email.setBackground(new java.awt.Color(105, 197, 103));
 
@@ -121,48 +122,21 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(border_email);
         border_email.setBounds(40, 200, 360, 3);
 
+        entrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
+        entrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(entrar1);
+        entrar1.setBounds(321, 337, 87, 35);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        try {
-            String usuario_login, usuario_senha;
-            usuario_login = loginCampo.getText();
-            usuario_senha = senhaCampo.getText();
-            
-            LoginBean loginBean = new LoginBean();
-            loginBean.setUsuario(usuario_login);
-            loginBean.setSenha(usuario_senha);
-            
-            int max = 0;
-            while (max <= 2){ //se adicionar mais um nível de acesso, prestar atenção neste trecho
-                loginBean.setNivel(max); //primeiro o sistema vai tentar logar como usuário normal
-                LoginDao loginDao = new LoginDao();
-                ResultSet rsLoginDao = loginDao.autenticaUsuario(loginBean);
-
-                if(rsLoginDao.next()){
-                    dispose();
-                    if (max == 0){
-                        System.out.println("ADMIN LOGADO!!!!!");
-                        
-                        Home home = new Home();
-                        home.setVisible(true);
-                        
-                    }else{
-                        System.out.println("USUÁRIO COMUM LOGADO!!!!!!");
-                        }
-                    return;
-                } else {
-                    if (max > 1){
-                        System.out.println("Usuario ou senha incorretos");
-                    }
-                    max++;
-                }
-            }
-        } catch (Exception e) {
-                        System.out.println("Erro em tela de login");
-        }
+        Mapa_1_marcador map = new Mapa_1_marcador(-23.51, -47.45);
     }//GEN-LAST:event_entrarActionPerformed
 
     private void senhaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCampoActionPerformed
@@ -172,6 +146,10 @@ public class Login extends javax.swing.JFrame {
     private void loginCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginCampoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginCampoActionPerformed
+
+    private void entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +190,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel border_senha;
     private javax.swing.JLabel email;
     private javax.swing.JButton entrar;
+    private javax.swing.JButton entrar1;
     private javax.swing.JTextField loginCampo;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel senha;
