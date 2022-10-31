@@ -98,13 +98,14 @@ public class Login extends javax.swing.JFrame {
         loginCampo.setBounds(90, 170, 320, 32);
 
         entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
+        entrar.setText("botão de teste do mapa, depois eu tiro");
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
             }
         });
         getContentPane().add(entrar);
-        entrar.setBounds(30, 420, 90, 35);
+        entrar.setBounds(30, 420, 370, 35);
 
         border_email.setBackground(new java.awt.Color(105, 197, 103));
 
