@@ -53,7 +53,7 @@ id int auto_increment,
 estatus int,
 placa varchar(7),
 motorista int,
-destinatario int unique,
+destinatario int,
 
 primary key(id),
 foreign key (placa) references veiculo(placa),
@@ -115,6 +115,12 @@ create trigger TriggerT -- nome do gatilho especificado
         values("disparos");
     end$
 delimiter ;
+
+-- Os inserts abaixo só funcionaram aqui no final! (ñ sei o pq)
+INSERT INTO estatus (estatus, placa, motorista, destinatario) 
+VALUES(1,'DFL2F87',1,1);
+INSERT INTO estatus (estatus, placa, motorista, destinatario) 
+VALUES(4,'FKL2F21',1,1);
 
 /*
 gatilho = trigger,l false procedurer        

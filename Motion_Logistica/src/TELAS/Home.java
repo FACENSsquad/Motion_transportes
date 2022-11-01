@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class Home extends javax.swing.JFrame {
 
     
-   private void tabela_produto(){
+   private void tabela_transito(){
         
         DefaultTableModel model = (DefaultTableModel) Transito.getModel(); //criando tabela
         model.setNumRows(0);   // listar tabela apartir de
@@ -27,34 +27,143 @@ public class Home extends javax.swing.JFrame {
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select * from estatus where estatus = 1");  // passando conexao para pst
+           pst = conn.prepareStatement("select placa from estatus where estatus = 1");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
                    
-                   rs.getInt(1),
-                   
+                   rs.getString(1),
                    
                });
-       
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
+   
+   private void tabela_coletando(){
+        
+        DefaultTableModel model = (DefaultTableModel) Coletando.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Coletando.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select placa from estatus where estatus = 2");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getString(1),
+                   
+               });
            }
         } catch ( Exception e) {
             System.out.println("Erro"+e);
         }
     }
             
-            
-           
+
+   private void tabela_destino(){
         
+        DefaultTableModel model = (DefaultTableModel) Destino.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Destino.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select placa from estatus where estatus = 3");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getString(1),
+                   
+               });
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
+           
+           private void tabela_descarga(){
+        
+        DefaultTableModel model = (DefaultTableModel) Descarga.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Descarga.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select placa from estatus where estatus = 4");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getString(1),
+                   
+               });
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
     
-    
+               private void tabela_finalizado(){
+        
+        DefaultTableModel model = (DefaultTableModel) Finalizado.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Finalizado.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select placa from estatus where estatus = 5");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getString(1),
+                   
+               });
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
+
     
     
     public Home(){
         initComponents();
-        tabela_produto();
-        //tabela_coletando();
+        tabela_transito();
+        tabela_coletando();
+        tabela_destino();
+        tabela_descarga();
+        tabela_finalizado();
 
     }
 
@@ -317,8 +426,6 @@ public class Home extends javax.swing.JFrame {
         });
         Transito.setToolTipText("");
         Transito.setShowGrid(true);
-        Transito.setShowHorizontalLines(true);
-        Transito.setShowVerticalLines(true);
         Transito.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Transito);
         if (Transito.getColumnModel().getColumnCount() > 0) {
