@@ -47,6 +47,7 @@ public class Mapa_1_marcador
         jXMapKit.setAddressLocation(gp);
 
         jXMapKit.getMainMap().addMouseMotionListener(new MouseMotionListener() {
+            
             @Override
             public void mouseDragged(MouseEvent e) { 
                 // ignore
@@ -55,6 +56,7 @@ public class Mapa_1_marcador
             @Override
             public void mouseMoved(MouseEvent e)
             {
+                
                 JXMapViewer map = jXMapKit.getMainMap();
 
                 // convert to world bitmap

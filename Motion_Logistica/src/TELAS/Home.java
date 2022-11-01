@@ -16,10 +16,10 @@ public class Home extends javax.swing.JFrame {
     
    private void tabela_produto(){
         
-        DefaultTableModel model = (DefaultTableModel) Table_home.getModel(); //criando tabela
+        DefaultTableModel model = (DefaultTableModel) Transito.getModel(); //criando tabela
         model.setNumRows(0);   // listar tabela apartir de
         
-        Table_home.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+        Transito.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
       
         
         try {
@@ -84,7 +84,19 @@ public class Home extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Table_home = new javax.swing.JTable();
+        Transito = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Veiculos = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Coletando = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Destino = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Descarga = new javax.swing.JTable();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        Finalizado = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        Alerta = new javax.swing.JTable();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -249,31 +261,436 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(30, 10, 32, 31);
+        jButton1.setBounds(0, 10, 32, 31);
 
-        Table_home.setModel(new javax.swing.table.DefaultTableModel(
+        Transito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "VEICULOS", "COLETA", "DESTINO", "DESCARGA", "FINALIZADO", "ALERTA"
+                "Transito"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(Table_home);
+        Transito.setToolTipText("");
+        Transito.setShowGrid(true);
+        Transito.setShowHorizontalLines(true);
+        Transito.setShowVerticalLines(true);
+        Transito.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(Transito);
+        if (Transito.getColumnModel().getColumnCount() > 0) {
+            Transito.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(190, 10, 453, 403);
+        jScrollPane2.setBounds(220, 0, 160, 590);
+
+        Veiculos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Veículos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Veiculos.setToolTipText("");
+        Veiculos.setShowGrid(true);
+        Veiculos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(Veiculos);
+        if (Veiculos.getColumnModel().getColumnCount() > 0) {
+            Veiculos.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(40, 0, 160, 590);
+
+        Coletando.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Coletando"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Coletando.setToolTipText("");
+        Coletando.setShowGrid(true);
+        Coletando.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(Coletando);
+        if (Coletando.getColumnModel().getColumnCount() > 0) {
+            Coletando.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane4);
+        jScrollPane4.setBounds(400, 0, 160, 590);
+
+        Destino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Coletando"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Destino.setToolTipText("");
+        Destino.setShowGrid(true);
+        Destino.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(Destino);
+        if (Destino.getColumnModel().getColumnCount() > 0) {
+            Destino.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane6);
+        jScrollPane6.setBounds(580, 0, 150, 590);
+
+        Descarga.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Descarga"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Descarga.setToolTipText("");
+        Descarga.setShowGrid(true);
+        Descarga.getTableHeader().setReorderingAllowed(false);
+        jScrollPane7.setViewportView(Descarga);
+        if (Descarga.getColumnModel().getColumnCount() > 0) {
+            Descarga.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane7);
+        jScrollPane7.setBounds(750, 0, 150, 590);
+
+        Finalizado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Finalizado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Finalizado.setToolTipText("");
+        Finalizado.setShowGrid(true);
+        Finalizado.getTableHeader().setReorderingAllowed(false);
+        jScrollPane8.setViewportView(Finalizado);
+        if (Finalizado.getColumnModel().getColumnCount() > 0) {
+            Finalizado.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane8);
+        jScrollPane8.setBounds(920, 0, 150, 590);
+
+        Alerta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Alerta"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Alerta.setToolTipText("");
+        Alerta.setShowGrid(true);
+        Alerta.getTableHeader().setReorderingAllowed(false);
+        jScrollPane9.setViewportView(Alerta);
+        if (Alerta.getColumnModel().getColumnCount() > 0) {
+            Alerta.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel3.add(jScrollPane9);
+        jScrollPane9.setBounds(1100, 0, 150, 590);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 120, 1280, 685);
@@ -335,6 +752,11 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Alerta;
+    private javax.swing.JTable Coletando;
+    private javax.swing.JTable Descarga;
+    private javax.swing.JTable Destino;
+    private javax.swing.JTable Finalizado;
     private javax.swing.JButton Status_coletando;
     private javax.swing.JButton Status_descarga;
     private javax.swing.JButton Status_descarga1;
@@ -342,7 +764,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton Status_descarga3;
     private javax.swing.JButton Status_destino;
     private javax.swing.JButton Status_transito;
-    private javax.swing.JTable Table_home;
+    private javax.swing.JTable Transito;
+    private javax.swing.JTable Veiculos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -357,6 +780,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel usuario;
