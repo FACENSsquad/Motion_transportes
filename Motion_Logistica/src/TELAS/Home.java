@@ -27,7 +27,7 @@ public class Home extends javax.swing.JFrame {
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select * from produto");  // passando conexao para pst
+           pst = conn.prepareStatement("select * from estatus where estatus = 1");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
