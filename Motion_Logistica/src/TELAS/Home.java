@@ -53,7 +53,9 @@ public class Home extends javax.swing.JFrame {
     
     public Home(){
         initComponents();
-       
+        tabela_produto();
+        //tabela_coletando();
+
     }
 
     @SuppressWarnings("unchecked")
