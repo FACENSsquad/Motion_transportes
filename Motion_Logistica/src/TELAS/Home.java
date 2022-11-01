@@ -13,7 +13,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Home extends javax.swing.JFrame {
 
-    
+       private void tabela_veiculos(){
+        
+        DefaultTableModel model = (DefaultTableModel) Veiculos.getModel(); //criando tabela
+        model.setNumRows(0);   // listar tabela apartir de
+        
+        Veiculos.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
+      
+        
+        try {
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select placa from estatus where estatus = 0");  // passando conexao para pst
+           rs = pst.executeQuery();      //executando  os valores da conexao com result set
+           
+           while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
+               model.addRow(new Object[]{
+                   
+                   rs.getString(1),
+                   
+               });
+           }
+        } catch ( Exception e) {
+            System.out.println("Erro"+e);
+        }
+    }
+       
    private void tabela_transito(){
         
         DefaultTableModel model = (DefaultTableModel) Transito.getModel(); //criando tabela
@@ -164,7 +191,7 @@ public class Home extends javax.swing.JFrame {
         tabela_destino();
         tabela_descarga();
         tabela_finalizado();
-
+        tabela_veiculos();
     }
 
     @SuppressWarnings("unchecked")
