@@ -69,9 +69,18 @@ public class Menu extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setFocusable(false);
+        setFocusableWindowState(false);
+        setMaximumSize(new java.awt.Dimension(200, 800));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel4.setBackground(new java.awt.Color(182, 182, 182));
+        jPanel4.setMaximumSize(new java.awt.Dimension(260, 800));
+        jPanel4.setName(""); // NOI18N
+        jPanel4.setRequestFocusEnabled(false);
+        jPanel4.setVerifyInputWhenFocusTarget(false);
         jPanel4.setLayout(null);
 
         button_fechar.setBackground(new java.awt.Color(255, 255, 255));
@@ -109,7 +118,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jLabel5)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,9 +141,9 @@ public class Menu extends javax.swing.JFrame {
         jButton4.setBounds(10, 200, 240, 30);
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 0, 260, 800);
+        jPanel4.setBounds(0, 0, 270, 800);
 
-        setBounds(1200, 150, 276, 839);
+        setBounds(1200, 100, 268, 738);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_fecharActionPerformed

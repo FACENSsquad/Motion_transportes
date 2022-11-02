@@ -12,7 +12,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Vinic
  */
 public class Home extends javax.swing.JFrame {
-
+       boolean menuAberto;
+       Menu menuObj = new Menu();
        private void tabela_veiculos(){
         
         DefaultTableModel model = (DefaultTableModel) Veiculos.getModel(); //criando tabela
@@ -185,6 +186,7 @@ public class Home extends javax.swing.JFrame {
     
     
     public Home(){
+        menuAberto = false;
         initComponents();
         tabela_transito();
         tabela_coletando();
@@ -841,7 +843,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_Status_descarga2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        if(menuAberto == false){
+            menuObj.setLocation(jButton2.getLocationOnScreen().x - 100,jButton2.getLocationOnScreen().y+40);
+            menuObj.setVisible(true);
+            menuAberto = true;
+        }
+        else{
+            menuObj.setVisible(false);
+            menuAberto = false;
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -919,4 +929,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
+
+    private void Menu() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
