@@ -1,37 +1,62 @@
 
 package TELAS;
 
+import CONEXAO.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vinic
  */
-public class Home extends javax.swing.JFrame {
+public class HomeTeste extends javax.swing.JFrame {
+    
+     private Conexao conexao;
+     private Connection conn;
+    
 
+    private void tabela_dashboard(){
     
-    public void Contador(String placa, int tempo){
-    
-        String n_placa = placa;
-      //  Informacao_placa.setName(n_placa);
-        
-        
-        int tempo_v = tempo;
-        
-        
-        
-        while (tempo_v == 0) {            
-           // Informacao_placa.setVisible(false);
-        }
-            
-            
+        DefaultTableModel model = (DefaultTableModel) Table_estatus.getModel(); //Criar tabela
+         model.setNumRows(0);   // listar tabela apartir de
+         
+         Table_estatus.getColumnModel().getColumn(0).setPreferredWidth(10);
+         
+         try {
+            Connection conn = new Conexao().mt_Conexao();
+            PreparedStatement pst;
+            ResultSet rs; 
+             
+           pst = conn.prepareStatement("select * from estatus");
+           rs = pst.executeQuery();
            
-        
+             while (rs.next()) {    // lendo os valores do banco, utilizando netx para percorrer os dados             
+                 
+                 model.addRow( new Object[]{
+                     
+                     rs.getInt(1)
+             
+                     });
+                 this.conexao.fecha_mt();
+             }
+             
+             
+        } catch (Exception e) {
+                
+             System.out.println("Erro ao iniciar tabela Dashboard");
+            
+        }
+    } 
     
-    }
+   
     
     
-    public Home() {
+    public HomeTeste() {
         initComponents();
-        //Informacao_placa.setVisible(true);
+        tabela_dashboard();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -60,14 +85,11 @@ public class Home extends javax.swing.JFrame {
         Status_descarga3 = new javax.swing.JButton();
         Status_descarga = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        veiculos = new javax.swing.JPanel();
-        Botton_addPlaca = new javax.swing.JButton();
-        transito = new javax.swing.JPanel();
-        coletando = new javax.swing.JPanel();
-        destino = new javax.swing.JPanel();
-        descarga = new javax.swing.JPanel();
         finalizado = new javax.swing.JPanel();
         alerta = new javax.swing.JPanel();
+        Botton_addPlaca = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Table_estatus = new javax.swing.JTable();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -224,106 +246,6 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 695));
         jPanel3.setLayout(null);
 
-        veiculos.setBackground(new java.awt.Color(255, 255, 255));
-        veiculos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
-
-        Botton_addPlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_addPlaca.png"))); // NOI18N
-        Botton_addPlaca.setBorderPainted(false);
-        Botton_addPlaca.setFocusCycleRoot(true);
-        Botton_addPlaca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Botton_addPlacaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout veiculosLayout = new javax.swing.GroupLayout(veiculos);
-        veiculos.setLayout(veiculosLayout);
-        veiculosLayout.setHorizontalGroup(
-            veiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(veiculosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Botton_addPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-        veiculosLayout.setVerticalGroup(
-            veiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(veiculosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Botton_addPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(641, Short.MAX_VALUE))
-        );
-
-        jPanel3.add(veiculos);
-        veiculos.setBounds(0, 0, 216, 680);
-
-        transito.setBackground(new java.awt.Color(255, 255, 255));
-        transito.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
-
-        javax.swing.GroupLayout transitoLayout = new javax.swing.GroupLayout(transito);
-        transito.setLayout(transitoLayout);
-        transitoLayout.setHorizontalGroup(
-            transitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
-        );
-        transitoLayout.setVerticalGroup(
-            transitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(transito);
-        transito.setBounds(216, 0, 175, 680);
-
-        coletando.setBackground(new java.awt.Color(255, 255, 255));
-        coletando.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
-
-        javax.swing.GroupLayout coletandoLayout = new javax.swing.GroupLayout(coletando);
-        coletando.setLayout(coletandoLayout);
-        coletandoLayout.setHorizontalGroup(
-            coletandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
-        );
-        coletandoLayout.setVerticalGroup(
-            coletandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(coletando);
-        coletando.setBounds(391, 0, 175, 680);
-
-        destino.setBackground(new java.awt.Color(255, 255, 255));
-        destino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
-
-        javax.swing.GroupLayout destinoLayout = new javax.swing.GroupLayout(destino);
-        destino.setLayout(destinoLayout);
-        destinoLayout.setHorizontalGroup(
-            destinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
-        );
-        destinoLayout.setVerticalGroup(
-            destinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(destino);
-        destino.setBounds(566, 0, 175, 680);
-
-        descarga.setBackground(new java.awt.Color(255, 255, 255));
-        descarga.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
-
-        javax.swing.GroupLayout descargaLayout = new javax.swing.GroupLayout(descarga);
-        descarga.setLayout(descargaLayout);
-        descargaLayout.setHorizontalGroup(
-            descargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
-        );
-        descargaLayout.setVerticalGroup(
-            descargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 678, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(descarga);
-        descarga.setBounds(741, 0, 175, 680);
-
         finalizado.setBackground(new java.awt.Color(255, 255, 255));
         finalizado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(189, 189, 189)));
 
@@ -358,18 +280,46 @@ public class Home extends javax.swing.JFrame {
         jPanel3.add(alerta);
         alerta.setBounds(1090, 0, 190, 680);
 
+        Botton_addPlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_addPlaca.png"))); // NOI18N
+        Botton_addPlaca.setBorderPainted(false);
+        Botton_addPlaca.setFocusCycleRoot(true);
+        Botton_addPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botton_addPlacaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Botton_addPlaca);
+        Botton_addPlaca.setBounds(10, 10, 32, 31);
+
+        Table_estatus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Veiculos", "Coletando", "Destino", "Descarga", "Finalizado", "Alerta"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(Table_estatus);
+
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(60, 10, 760, 402);
+
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 120, 1280, 685);
+        jPanel3.setBounds(0, 110, 1280, 685);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Botton_addPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_addPlacaActionPerformed
-        Adicionar_placa AddRota = new Adicionar_placa();
-        
-        AddRota.setVisible(true);
-      //  Contador(placa, tempo);
-    }//GEN-LAST:event_Botton_addPlacaActionPerformed
 
     private void Status_transitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Status_transitoActionPerformed
         // TODO add your handling code here:
@@ -382,6 +332,13 @@ public class Home extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Botton_addPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_addPlacaActionPerformed
+        Adicionar_placa AddRota = new Adicionar_placa();
+
+        AddRota.setVisible(true);
+        
+    }//GEN-LAST:event_Botton_addPlacaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,21 +357,23 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTeste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTeste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTeste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTeste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new HomeTeste().setVisible(true);
             }
         });
     }
@@ -428,10 +387,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton Status_descarga3;
     private javax.swing.JButton Status_destino;
     private javax.swing.JButton Status_transito;
+    private javax.swing.JTable Table_estatus;
     private javax.swing.JPanel alerta;
-    private javax.swing.JPanel coletando;
-    private javax.swing.JPanel descarga;
-    private javax.swing.JPanel destino;
     private javax.swing.JPanel finalizado;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
@@ -445,10 +402,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logo;
-    private javax.swing.JPanel transito;
     private javax.swing.JLabel usuario;
-    private javax.swing.JPanel veiculos;
     // End of variables declaration//GEN-END:variables
 }

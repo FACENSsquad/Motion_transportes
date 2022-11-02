@@ -5,7 +5,7 @@ package TELAS;
  *
  * @author Vinic
  */
-public class Home extends javax.swing.JFrame {
+public class HomeTeste1 extends javax.swing.JFrame {
 
     
     public void Contador(String placa, int tempo){
@@ -29,7 +29,7 @@ public class Home extends javax.swing.JFrame {
     }
     
     
-    public Home() {
+    public HomeTeste1() {
         initComponents();
         //Informacao_placa.setVisible(true);
     }
@@ -62,6 +62,8 @@ public class Home extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         veiculos = new javax.swing.JPanel();
         Botton_addPlaca = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         transito = new javax.swing.JPanel();
         coletando = new javax.swing.JPanel();
         destino = new javax.swing.JPanel();
@@ -97,10 +99,8 @@ public class Home extends javax.swing.JFrame {
         usuario.setText("teste");
 
         logo.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
-        logo.setForeground(new java.awt.Color(0, 0, 0));
         logo.setText("MotiON");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_menu.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,6 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 55));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 55));
 
-        Status_transito.setBackground(new java.awt.Color(255, 255, 255));
         Status_transito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_veiculos.png"))); // NOI18N
         Status_transito.setBorderPainted(false);
         Status_transito.addActionListener(new java.awt.event.ActionListener() {
@@ -151,19 +150,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        Status_coletando.setBackground(new java.awt.Color(255, 255, 255));
         Status_coletando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_coletando.png"))); // NOI18N
         Status_coletando.setBorderPainted(false);
 
-        Status_destino.setBackground(new java.awt.Color(255, 255, 255));
         Status_destino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_coletando.png"))); // NOI18N
         Status_destino.setBorderPainted(false);
 
-        Status_descarga1.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_destino.png"))); // NOI18N
         Status_descarga1.setBorderPainted(false);
 
-        Status_descarga2.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_descarga.png"))); // NOI18N
         Status_descarga2.setBorderPainted(false);
         Status_descarga2.addActionListener(new java.awt.event.ActionListener() {
@@ -172,11 +167,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        Status_descarga3.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_finalizado.png"))); // NOI18N
         Status_descarga3.setBorderPainted(false);
 
-        Status_descarga.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Status_alerta.png"))); // NOI18N
         Status_descarga.setBorderPainted(false);
 
@@ -236,6 +229,19 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
         javax.swing.GroupLayout veiculosLayout = new javax.swing.GroupLayout(veiculos);
         veiculos.setLayout(veiculosLayout);
         veiculosLayout.setHorizontalGroup(
@@ -243,14 +249,20 @@ public class Home extends javax.swing.JFrame {
             .addGroup(veiculosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Botton_addPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, veiculosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(252, 252, 252))
         );
         veiculosLayout.setVerticalGroup(
             veiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(veiculosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Botton_addPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(641, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel3.add(veiculos);
@@ -445,6 +457,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel transito;
