@@ -844,7 +844,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(menuAberto == false){
-            menuObj.setLocation(jButton2.getLocationOnScreen().x - 100,jButton2.getLocationOnScreen().y+40);
+            menuObj.setLocation(jButton2.getLocationOnScreen().x - 100,jButton2.getLocationOnScreen().y + 40);
             menuObj.setVisible(true);
             menuAberto = true;
         }

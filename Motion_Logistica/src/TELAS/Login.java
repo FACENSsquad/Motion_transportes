@@ -158,6 +158,9 @@ public class Login extends javax.swing.JFrame {
                     dispose();
                     if (max == 0){
                         System.out.println("ADMIN LOGADO!!!!!");
+                        Home home = new Home();
+                        home.setVisible(true);
+                        this.setVisible(false);
                     }else{
                         System.out.println("USUÁRIO COMUM LOGADO!!!!!!");
                     }
