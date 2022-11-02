@@ -83,7 +83,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbutton1 = new javax.swing.JButton();
         Cnpj = new javax.swing.JTextField();
         Caixa_endereco = new javax.swing.JTextField();
         Caixa_cidade = new javax.swing.JTextField();
@@ -91,7 +91,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         Caixa_telefone = new javax.swing.JTextField();
         Caixa_email = new javax.swing.JTextField();
         Box_estado = new javax.swing.JComboBox<>();
-        Botton_cadastrar = new javax.swing.JButton();
+        button_cadastrar = new javax.swing.JButton();
         RazãoSoc = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -136,19 +136,19 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(360, 90, 60, 20);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_fechar.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbutton1.setBackground(new java.awt.Color(255, 255, 255));
+        jbutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_fechar.png"))); // NOI18N
+        jbutton1.setBorder(null);
+        jbutton1.setBorderPainted(false);
+        jbutton1.setContentAreaFilled(false);
+        jbutton1.setFocusable(false);
+        jbutton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbutton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(660, 10, 31, 26);
+        jPanel1.add(jbutton1);
+        jbutton1.setBounds(660, 10, 31, 26);
 
         Cnpj.setBackground(new java.awt.Color(255, 255, 255));
         Cnpj.setForeground(new java.awt.Color(0, 0, 0));
@@ -231,23 +231,22 @@ public class Cadastro_cliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Box_estado);
-        Box_estado.setBounds(100, 190, 44, 24);
+        Box_estado.setBounds(100, 190, 72, 22);
 
-        Botton_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        Botton_cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_salvar.png"))); // NOI18N
-        Botton_cadastrar.setBorder(null);
-        Botton_cadastrar.setBorderPainted(false);
-        Botton_cadastrar.setContentAreaFilled(false);
-        Botton_cadastrar.setFocusPainted(false);
-        Botton_cadastrar.setFocusable(false);
-        Botton_cadastrar.setOpaque(false);
-        Botton_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        button_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        button_cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
+        button_cadastrar.setBorder(null);
+        button_cadastrar.setBorderPainted(false);
+        button_cadastrar.setContentAreaFilled(false);
+        button_cadastrar.setFocusPainted(false);
+        button_cadastrar.setFocusable(false);
+        button_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Botton_cadastrarActionPerformed(evt);
+                button_cadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(Botton_cadastrar);
-        Botton_cadastrar.setBounds(580, 390, 100, 40);
+        jPanel1.add(button_cadastrar);
+        button_cadastrar.setBounds(580, 390, 100, 40);
 
         RazãoSoc.setBackground(new java.awt.Color(255, 255, 255));
         RazãoSoc.setForeground(new java.awt.Color(0, 0, 0));
@@ -326,14 +325,6 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RazãoSocActionPerformed
 
-    private void Botton_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_cadastrarActionPerformed
-        Cadastrar_Destino(destinatario);
-    }//GEN-LAST:event_Botton_cadastrarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void Caixa_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_enderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Caixa_enderecoActionPerformed
@@ -341,6 +332,14 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     private void Box_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Box_estadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Box_estadoActionPerformed
+
+    private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbutton1ActionPerformed
+
+    private void button_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cadastrarActionPerformed
+        Cadastrar_Destino(destinatario);
+    }//GEN-LAST:event_button_cadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,7 +378,6 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Botton_cadastrar;
     private javax.swing.JComboBox<String> Box_estado;
     private javax.swing.JTextField Caixa_cidade;
     private javax.swing.JTextField Caixa_ddd;
@@ -388,7 +386,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     private javax.swing.JTextField Caixa_telefone;
     private javax.swing.JTextField Cnpj;
     private javax.swing.JTextField RazãoSoc;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_cadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -400,5 +398,6 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jbutton1;
     // End of variables declaration//GEN-END:variables
 }

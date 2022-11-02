@@ -7,7 +7,7 @@ package TELAS;
 import BEANS.LoginBean;
 import DAO.LoginDao;
 import java.sql.ResultSet;
-import TELAS.Mapa_1_marcador;
+
 /**
  *
  * @author eduar
@@ -30,6 +30,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         senha = new javax.swing.JLabel();
         senhaCampo = new javax.swing.JPasswordField();
@@ -38,24 +39,25 @@ public class Login extends javax.swing.JFrame {
         loginCampo = new javax.swing.JTextField();
         entrar = new javax.swing.JButton();
         border_email = new javax.swing.JPanel();
-        entrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(226, 226, 226));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(500, 640));
+        setPreferredSize(new java.awt.Dimension(440, 400));
+        setResizable(false);
         getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         logo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         logo.setText("MotiON");
-        getContentPane().add(logo);
+        jPanel1.add(logo);
         logo.setBounds(179, 66, 86, 38);
 
         senha.setText("Senha:");
-        getContentPane().add(senha);
+        jPanel1.add(senha);
         senha.setBounds(40, 250, 48, 16);
 
-        senhaCampo.setEditable(false);
         senhaCampo.setText("teste");
         senhaCampo.setBorder(null);
         senhaCampo.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +65,7 @@ public class Login extends javax.swing.JFrame {
                 senhaCampoActionPerformed(evt);
             }
         });
-        getContentPane().add(senhaCampo);
+        jPanel1.add(senhaCampo);
         senhaCampo.setBounds(90, 240, 320, 31);
 
         border_senha.setBackground(new java.awt.Color(105, 197, 103));
@@ -79,14 +81,13 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        getContentPane().add(border_senha);
+        jPanel1.add(border_senha);
         border_senha.setBounds(40, 270, 360, 3);
 
         email.setText("Email:");
-        getContentPane().add(email);
+        jPanel1.add(email);
         email.setBounds(40, 180, 48, 16);
 
-        loginCampo.setEditable(false);
         loginCampo.setText("teste@teste.com");
         loginCampo.setBorder(null);
         loginCampo.addActionListener(new java.awt.event.ActionListener() {
@@ -94,18 +95,17 @@ public class Login extends javax.swing.JFrame {
                 loginCampoActionPerformed(evt);
             }
         });
-        getContentPane().add(loginCampo);
+        jPanel1.add(loginCampo);
         loginCampo.setBounds(90, 170, 320, 32);
 
         entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
-        entrar.setText("botão de teste do mapa, depois eu tiro");
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(entrar);
-        entrar.setBounds(30, 420, 370, 35);
+        jPanel1.add(entrar);
+        entrar.setBounds(320, 310, 87, 30);
 
         border_email.setBackground(new java.awt.Color(105, 197, 103));
 
@@ -120,25 +120,15 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        getContentPane().add(border_email);
+        jPanel1.add(border_email);
         border_email.setBounds(40, 200, 360, 3);
 
-        entrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_login.png"))); // NOI18N
-        entrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(entrar1);
-        entrar1.setBounds(321, 337, 87, 35);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 460, 420);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        Mapa_1_marcador map = new Mapa_1_marcador(-23.51, -47.45);
-    }//GEN-LAST:event_entrarActionPerformed
 
     private void senhaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCampoActionPerformed
         // TODO add your handling code here:
@@ -148,9 +138,41 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginCampoActionPerformed
 
-    private void entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entrar1ActionPerformed
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        try {
+            String usuario_login, usuario_senha;
+            usuario_login = loginCampo.getText();
+            usuario_senha = senhaCampo.getText();
+
+            LoginBean loginBean = new LoginBean();
+            loginBean.setUsuario(usuario_login);
+            loginBean.setSenha(usuario_senha);
+
+            int max = 0;
+            while (max <= 2){ //se adicionar mais um nível de acesso, prestar atenção neste trecho
+                loginBean.setNivel(max); //primeiro o sistema vai tentar logar como usuário normal
+                LoginDao loginDao = new LoginDao();
+                ResultSet rsLoginDao = loginDao.autenticaUsuario(loginBean);
+
+                if(rsLoginDao.next()){
+                    dispose();
+                    if (max == 0){
+                        System.out.println("ADMIN LOGADO!!!!!");
+                    }else{
+                        System.out.println("USUÁRIO COMUM LOGADO!!!!!!");
+                    }
+                    return;
+                } else {
+                    if (max > 1){
+                        System.out.println("Usuario ou senha incorretos");
+                    }
+                    max++;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erro em tela de login");
+        }
+    }//GEN-LAST:event_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,8 +203,10 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Login().setVisible(true);
+            }
         });
     }
 
@@ -191,7 +215,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel border_senha;
     private javax.swing.JLabel email;
     private javax.swing.JButton entrar;
-    private javax.swing.JButton entrar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField loginCampo;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel senha;

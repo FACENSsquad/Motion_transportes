@@ -64,10 +64,10 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Caixa_nome = new javax.swing.JTextField();
         Caixa_telefone = new javax.swing.JTextField();
-        Cadastrar = new javax.swing.JButton();
+        cadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbutton1 = new javax.swing.JButton();
         descrição = new javax.swing.JLabel();
         BD_qtdMOTO = new javax.swing.JLabel();
         dash = new javax.swing.JLabel();
@@ -87,7 +87,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Telefone:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(310, 110, 60, 15);
+        jLabel2.setBounds(310, 110, 60, 16);
 
         Caixa_nome.setBackground(java.awt.Color.white);
         Caixa_nome.setForeground(new java.awt.Color(0, 0, 0));
@@ -108,18 +108,18 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(Caixa_telefone);
         Caixa_telefone.setBounds(370, 110, 150, 20);
 
-        Cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_salvar.png"))); // NOI18N
-        Cadastrar.setBorder(null);
-        Cadastrar.setBorderPainted(false);
-        Cadastrar.setContentAreaFilled(false);
-        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        cadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
+        cadastrar.setBorder(null);
+        cadastrar.setBorderPainted(false);
+        cadastrar.setContentAreaFilled(false);
+        cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarActionPerformed(evt);
+                cadastrarActionPerformed(evt);
             }
         });
-        jPanel2.add(Cadastrar);
-        Cadastrar.setBounds(580, 390, 97, 38);
+        jPanel2.add(cadastrar);
+        cadastrar.setBounds(580, 390, 97, 38);
 
         jPanel1.setBackground(new java.awt.Color(217, 217, 217));
         jPanel1.setPreferredSize(new java.awt.Dimension(645, 30));
@@ -145,24 +145,24 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(jPanel1);
         jPanel1.setBounds(10, 10, 645, 30);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_fechar.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbutton1.setBackground(new java.awt.Color(255, 255, 255));
+        jbutton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_fechar.png"))); // NOI18N
+        jbutton1.setBorder(null);
+        jbutton1.setBorderPainted(false);
+        jbutton1.setContentAreaFilled(false);
+        jbutton1.setFocusable(false);
+        jbutton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbutton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
-        jButton1.setBounds(660, 10, 31, 26);
+        jPanel2.add(jbutton1);
+        jbutton1.setBounds(660, 10, 31, 26);
 
         descrição.setForeground(new java.awt.Color(0, 0, 0));
         descrição.setText("Quantidade de motoristas cadastrados:");
         jPanel2.add(descrição);
-        descrição.setBounds(80, 230, 200, 15);
+        descrição.setBounds(80, 230, 200, 16);
 
         BD_qtdMOTO.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BD_qtdMOTO.setForeground(new java.awt.Color(0, 0, 0));
@@ -170,7 +170,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(BD_qtdMOTO);
         BD_qtdMOTO.setBounds(110, 260, 40, 30);
 
-        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dash_p.png"))); // NOI18N
+        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/dash_p.png"))); // NOI18N
         jPanel2.add(dash);
         dash.setBounds(80, 250, 100, 50);
 
@@ -191,13 +191,13 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
         Cadastrar_Motorista(motorista);
-    }//GEN-LAST:event_CadastrarActionPerformed
+    }//GEN-LAST:event_cadastrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbutton1ActionPerformed
 
    
     public static void main(String args[]) {
@@ -235,16 +235,16 @@ public class Cadastro_motorista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BD_qtdMOTO;
-    private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField Caixa_nome;
     private javax.swing.JTextField Caixa_telefone;
+    private javax.swing.JButton cadastrar;
     private javax.swing.JLabel dash;
     private javax.swing.JLabel descrição;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jbutton1;
     // End of variables declaration//GEN-END:variables
 }

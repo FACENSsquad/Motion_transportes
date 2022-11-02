@@ -193,7 +193,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="Status_transito" min="-2" pref="179" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Status_coletando" min="-2" pref="159" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="Status_destino" min="-2" pref="165" max="-2" attributes="0"/>
@@ -206,13 +208,6 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Status_descarga" min="-2" pref="160" max="-2" attributes="0"/>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="Status_transito" min="-2" pref="179" max="-2" attributes="0"/>
-                      <EmptySpace pref="1073" max="32767" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -227,15 +222,9 @@
                       <Component id="Status_descarga1" alignment="1" max="32767" attributes="0"/>
                       <Component id="Status_descarga2" alignment="1" max="32767" attributes="0"/>
                       <Component id="Status_descarga3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Status_transito" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Status_transito" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>

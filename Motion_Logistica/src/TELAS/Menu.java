@@ -47,7 +47,7 @@ public class Menu extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        button_fechar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -74,19 +74,19 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(182, 182, 182));
         jPanel4.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_fechar.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button_fechar.setBackground(new java.awt.Color(255, 255, 255));
+        button_fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_fechar.png"))); // NOI18N
+        button_fechar.setBorder(null);
+        button_fechar.setBorderPainted(false);
+        button_fechar.setContentAreaFilled(false);
+        button_fechar.setFocusable(false);
+        button_fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button_fecharActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1);
-        jButton1.setBounds(10, 10, 31, 26);
+        jPanel4.add(button_fechar);
+        button_fechar.setBounds(10, 10, 31, 26);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,9 +137,9 @@ public class Menu extends javax.swing.JFrame {
         setBounds(1200, 150, 276, 839);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void button_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_fecharActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_button_fecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +180,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_fechar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

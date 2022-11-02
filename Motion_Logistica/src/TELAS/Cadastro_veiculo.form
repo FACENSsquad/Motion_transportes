@@ -116,7 +116,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/Botao_salvar.png"/>
+              <Image iconType="3" name="/IMGs/botaosalvar.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -184,7 +184,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/Botao_fechar.png"/>
+              <Image iconType="3" name="/IMGs/botao_fechar.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -234,7 +234,7 @@
         <Component class="javax.swing.JLabel" name="dash">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/dash_p.png"/>
+              <Image iconType="3" name="/IMGs/dash_p.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -262,7 +262,6 @@
             <Property name="debugGraphicsOptions" type="int" value="1"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="lightWeightPopupEnabled" type="boolean" value="false"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

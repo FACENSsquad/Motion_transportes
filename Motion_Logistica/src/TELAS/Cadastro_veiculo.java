@@ -87,7 +87,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Veiculo:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(310, 110, 60, 15);
+        jLabel2.setBounds(310, 110, 60, 16);
 
         Caixa_nome.setBackground(java.awt.Color.white);
         Caixa_nome.setForeground(new java.awt.Color(0, 0, 0));
@@ -99,7 +99,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         Caixa_nome.setBounds(90, 110, 150, 20);
 
         Cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_salvar.png"))); // NOI18N
+        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
         Cadastrar.setBorder(null);
         Cadastrar.setBorderPainted(false);
         Cadastrar.setContentAreaFilled(false);
@@ -136,7 +136,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel1.setBounds(10, 10, 645, 30);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_fechar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_fechar.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -152,7 +152,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         descrição.setForeground(new java.awt.Color(0, 0, 0));
         descrição.setText("Quantidade de motoristas cadastrados:");
         jPanel2.add(descrição);
-        descrição.setBounds(80, 230, 200, 15);
+        descrição.setBounds(80, 230, 200, 16);
 
         BD_qtdMOTO.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BD_qtdMOTO.setForeground(new java.awt.Color(0, 0, 0));
@@ -160,7 +160,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel2.add(BD_qtdMOTO);
         BD_qtdMOTO.setBounds(110, 260, 40, 30);
 
-        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dash_p.png"))); // NOI18N
+        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/dash_p.png"))); // NOI18N
         jPanel2.add(dash);
         dash.setBounds(80, 250, 100, 50);
 
@@ -170,7 +170,6 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         veiculoss.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
         veiculoss.setFocusable(false);
         veiculoss.setLightWeightPopupEnabled(false);
-        veiculoss.setOpaque(false);
         jPanel2.add(veiculoss);
         veiculoss.setBounds(360, 110, 100, 20);
 

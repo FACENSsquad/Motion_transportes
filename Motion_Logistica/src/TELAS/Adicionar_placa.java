@@ -19,12 +19,13 @@ public class Adicionar_placa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        Fechar = new javax.swing.JButton();
+        fechar = new javax.swing.JButton();
         Cpd_motorista = new javax.swing.JTextField();
-        Botton_confirmar = new javax.swing.JButton();
+        button_confirmar = new javax.swing.JButton();
         Des_observação = new javax.swing.JLabel();
         Des_Codmotorista = new javax.swing.JLabel();
         Des_Codplaca = new javax.swing.JLabel();
@@ -33,6 +34,8 @@ public class Adicionar_placa extends javax.swing.JFrame {
         Cod_destino = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +53,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
+                .addContainerGap(286, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(270, 270, 270))
         );
@@ -59,15 +62,15 @@ public class Adicionar_placa extends javax.swing.JFrame {
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        Fechar.setBackground(new java.awt.Color(255, 255, 255));
-        Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_fechar.png"))); // NOI18N
-        Fechar.setBorder(null);
-        Fechar.setBorderPainted(false);
-        Fechar.setContentAreaFilled(false);
-        Fechar.setFocusable(false);
-        Fechar.addActionListener(new java.awt.event.ActionListener() {
+        fechar.setBackground(new java.awt.Color(255, 255, 255));
+        fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_fechar.png"))); // NOI18N
+        fechar.setBorder(null);
+        fechar.setBorderPainted(false);
+        fechar.setContentAreaFilled(false);
+        fechar.setFocusable(false);
+        fechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FecharActionPerformed(evt);
+                fecharActionPerformed(evt);
             }
         });
 
@@ -80,12 +83,12 @@ public class Adicionar_placa extends javax.swing.JFrame {
             }
         });
 
-        Botton_confirmar.setBackground(new java.awt.Color(255, 255, 255));
-        Botton_confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Botao_salvar.png"))); // NOI18N
-        Botton_confirmar.setBorderPainted(false);
-        Botton_confirmar.addActionListener(new java.awt.event.ActionListener() {
+        button_confirmar.setBackground(new java.awt.Color(255, 255, 255));
+        button_confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
+        button_confirmar.setBorderPainted(false);
+        button_confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Botton_confirmarActionPerformed(evt);
+                button_confirmarActionPerformed(evt);
             }
         });
 
@@ -166,11 +169,11 @@ public class Adicionar_placa extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Fechar)
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(fechar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Botton_confirmar)
+                        .addComponent(button_confirmar)
                         .addGap(24, 24, 24))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -179,7 +182,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Fechar))
+                    .addComponent(fechar))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Des_Codmotorista)
@@ -192,8 +195,8 @@ public class Adicionar_placa extends javax.swing.JFrame {
                 .addComponent(Des_observação)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(Botton_confirmar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(button_confirmar)
                 .addGap(22, 22, 22))
         );
 
@@ -212,22 +215,9 @@ public class Adicionar_placa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Botton_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_confirmarActionPerformed
-        String placa = Cpd_motorista.getText();
-        //int tempo = Integer.parseInt(Tempo_viagem.getText());
-        
-        Home home = new Home();
-      //  home.Contador(placa, tempo);
-        
-    }//GEN-LAST:event_Botton_confirmarActionPerformed
-
     private void Cpd_motoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cpd_motoristaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Cpd_motoristaActionPerformed
-
-    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FecharActionPerformed
 
     private void N_placa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N_placa1ActionPerformed
         // TODO add your handling code here:
@@ -236,6 +226,18 @@ public class Adicionar_placa extends javax.swing.JFrame {
     private void Cod_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cod_destinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Cod_destinoActionPerformed
+
+    private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecharActionPerformed
+
+    private void button_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_confirmarActionPerformed
+        String placa = Cpd_motorista.getText();
+        //int tempo = Integer.parseInt(Tempo_viagem.getText());
+
+        Home home = new Home();
+        //  home.Contador(placa, tempo);
+    }//GEN-LAST:event_button_confirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,19 +276,20 @@ public class Adicionar_placa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Botton_confirmar;
     private javax.swing.JTextField Cod_destino;
     private javax.swing.JTextField Cpd_motorista;
     private javax.swing.JLabel Des_Coddestino;
     private javax.swing.JLabel Des_Codmotorista;
     private javax.swing.JLabel Des_Codplaca;
     private javax.swing.JLabel Des_observação;
-    private javax.swing.JButton Fechar;
     private javax.swing.JTextField N_placa1;
+    private javax.swing.JButton button_confirmar;
+    private javax.swing.JButton fechar;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
