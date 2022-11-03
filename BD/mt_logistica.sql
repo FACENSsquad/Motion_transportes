@@ -44,6 +44,8 @@ create table cliente(
     ddd varchar(2) ,
     telefone varchar(12) unique ,
     email varchar(150) unique not null,
+    coordX double,
+    coordY double,
     
     primary key(id)
 );
@@ -126,13 +128,13 @@ values("FKL2F21", "Caminhão"),
 ("KGH1B10", "Caminhão"),
 ("LGH1B11", "Caminhão");
 
-insert into cliente(cnpj, nome_fantasia, endereco, uf, cidade, ddd, telefone, email)
-values("05454606000110", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823444", "logistica@forthjardim.com.br"),
-("05454606000111", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823445", "logistica@forthjardim.com.br2"),
-("05454606000112", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823446", "logistica@forthjardim.com.br3"),
-("05454606000113", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823447", "logistica@forthjardim.com.br4"),
-("05454606000114", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823448", "logistica@forthjardim.com.br5"),
-("05454606050115", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532223449", "istica@forthjardim.com.br6");
+insert into cliente(cnpj, nome_fantasia, endereco, uf, cidade, ddd, telefone, email,coordX,coordY)
+values("05454606000110", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823444", "logistica@forthjardim.com.br",-23.51, -47.45),
+("05454606000111", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823445", "logistica@forthjardim.com.br2",-23.51, -47.4),
+("05454606000112", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823446", "logistica@forthjardim.com.br3",-23.51, -47.4),
+("05454606000113", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823447", "logistica@forthjardim.com.br4",-23.51, -47.4),
+("05454606000114", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823448", "logistica@forthjardim.com.br5",-23.51, -47.4),
+("05454606050115", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532223449", "istica@forthjardim.com.br6",-23.51, -47.4);
 
 -- quantidade de logs realizados
 -- gatilho especificado em tempo real
