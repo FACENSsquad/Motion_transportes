@@ -86,7 +86,10 @@ public class Home extends javax.swing.JFrame {
         int col= Transito.columnAtPoint(e.getPoint());
         System.out.println(Transito.getModel().getValueAt(row,1).toString());
         System.out.println(Transito.getModel().getValueAt(row,2).toString());
-        Mapa_1_marcador map = new Mapa_1_marcador((Double)Transito.getModel().getValueAt(row,1),(Double)Transito.getModel().getValueAt(row,2)); 
+        Popup_infos_placa popup = new Popup_infos_placa((Double)Transito.getModel().getValueAt(row,1),(Double)Transito.getModel().getValueAt(row,2),Transito.getModel().getValueAt(row, 0).toString());
+        popup.setVisible(true);
+        popup.setLocation(e.getXOnScreen() + 10, e.getYOnScreen() - 10);
+        //Mapa_1_marcador map = new Mapa_1_marcador((Double)Transito.getModel().getValueAt(row,1),(Double)Transito.getModel().getValueAt(row,2)); 
         }}
         });
     }
@@ -129,7 +132,10 @@ public class Home extends javax.swing.JFrame {
                         int col = Coletando.columnAtPoint(e.getPoint());
                         System.out.println(Coletando.getModel().getValueAt(row, 1).toString());
                         System.out.println(Coletando.getModel().getValueAt(row, 2).toString());
-                        Mapa_1_marcador map = new Mapa_1_marcador((Double) Coletando.getModel().getValueAt(row, 1), (Double) Coletando.getModel().getValueAt(row, 2));
+                        Popup_infos_placa popup = new Popup_infos_placa((Double) Coletando.getModel().getValueAt(row, 1), (Double) Coletando.getModel().getValueAt(row, 2), Coletando.getModel().getValueAt(row, 0).toString());
+                        popup.setVisible(true);
+                        popup.setLocation(e.getXOnScreen() + 10, e.getYOnScreen() - 10);                        
+                        //Mapa_1_marcador map = new Mapa_1_marcador((Double) Coletando.getModel().getValueAt(row, 1), (Double) Coletando.getModel().getValueAt(row, 2));
                     }
                 }
             });
@@ -176,7 +182,11 @@ public class Home extends javax.swing.JFrame {
                    int col = Destino.columnAtPoint(e.getPoint());
                    System.out.println(Destino.getModel().getValueAt(row, 1).toString());
                    System.out.println(Destino.getModel().getValueAt(row, 2).toString());
-                   Mapa_1_marcador map = new Mapa_1_marcador((Double) Destino.getModel().getValueAt(row, 1), (Double) Destino.getModel().getValueAt(row, 2));
+                   Popup_infos_placa popup = new Popup_infos_placa((Double) Destino.getModel().getValueAt(row, 1), (Double) Destino.getModel().getValueAt(row, 2), Destino.getModel().getValueAt(row, 0).toString());
+                   popup.setVisible(true);
+                   popup.setLocation(e.getXOnScreen() + 10, e.getYOnScreen() -10);
+                   
+//Mapa_1_marcador map = new Mapa_1_marcador((Double) Destino.getModel().getValueAt(row, 1), (Double) Destino.getModel().getValueAt(row, 2));
                }
            }
        });
@@ -219,7 +229,11 @@ public class Home extends javax.swing.JFrame {
                            int col = Descarga.columnAtPoint(e.getPoint());
                            System.out.println(Descarga.getModel().getValueAt(row, 1).toString());
                            System.out.println(Descarga.getModel().getValueAt(row, 2).toString());
-                           Mapa_1_marcador map = new Mapa_1_marcador((Double) Descarga.getModel().getValueAt(row, 1), (Double) Descarga.getModel().getValueAt(row, 2));
+                           Popup_infos_placa popup = new Popup_infos_placa((Double) Descarga.getModel().getValueAt(row, 1), (Double) Descarga.getModel().getValueAt(row, 2), Descarga.getModel().getValueAt(row, 0).toString());
+                           popup.setVisible(true);
+                           popup.setLocation(e.getXOnScreen() + 10, e.getYOnScreen() - 10);
+                           
+//Mapa_1_marcador map = new Mapa_1_marcador((Double) Descarga.getModel().getValueAt(row, 1), (Double) Descarga.getModel().getValueAt(row, 2));
                        }
                    }
                });
@@ -524,7 +538,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Transito.setToolTipText("");
-        Transito.setColumnSelectionAllowed(false);
         Transito.setShowGrid(true);
         Transito.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Transito);
