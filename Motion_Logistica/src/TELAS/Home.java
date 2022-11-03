@@ -2,10 +2,13 @@
 package TELAS;
 
 import CONEXAO.Conexao;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -27,14 +30,16 @@ public class Home extends javax.swing.JFrame {
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa from estatus where estatus = 0");  // passando conexao para pst
+           pst = conn.prepareStatement("select placa, coordX, coordY from estatus where estatus = 0");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
                    
                    rs.getString(1),
-                   
+                   rs.getDouble(2),
+                   rs.getDouble(3),
+
                });
            }
         } catch ( Exception e) {
@@ -47,56 +52,90 @@ public class Home extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) Transito.getModel(); //criando tabela
         model.setNumRows(0);   // listar tabela apartir de
         
-        Transito.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
-      
-        
+        Transito.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela            
+        Transito.removeColumn(Transito.getColumnModel().getColumn(2));
+        Transito.removeColumn(Transito.getColumnModel().getColumn(1));
+
         try {
            Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa from estatus where estatus = 1");  // passando conexao para pst
+           pst = conn.prepareStatement("select e.placa, c.coordX, c.coordY from estatus as e inner join clientes as c on e.destinatario = c.id where estatus = 1");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
-           
+
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
-                   
                    rs.getString(1),
-                   
+                   rs.getDouble(2),
+                   rs.getDouble(3),
                });
            }
+           
+
+
         } catch ( Exception e) {
             System.out.println("Erro"+e);
         }
+        
+        //Pega os valores de cada célula quando é dado o duplo clique
+        Transito.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 2) {
+        int row=Transito.rowAtPoint(e.getPoint());
+        int col= Transito.columnAtPoint(e.getPoint());
+        System.out.println(Transito.getModel().getValueAt(row,1).toString());
+        System.out.println(Transito.getModel().getValueAt(row,2).toString());
+        Mapa_1_marcador map = new Mapa_1_marcador((Double)Transito.getModel().getValueAt(row,1),(Double)Transito.getModel().getValueAt(row,2)); 
+        }}
+        });
     }
    
-   private void tabela_coletando(){
+        private void tabela_coletando(){
         
         DefaultTableModel model = (DefaultTableModel) Coletando.getModel(); //criando tabela
         model.setNumRows(0);   // listar tabela apartir de
         
         Coletando.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
-      
+        Coletando.removeColumn(Coletando.getColumnModel().getColumn(2));
+        Coletando.removeColumn(Coletando.getColumnModel().getColumn(1));
+
         
         try {
            Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa from estatus where estatus = 2");  // passando conexao para pst
+           pst = conn.prepareStatement("select e.placa, c.coordX, c.coordY from estatus as e inner join clientes as c on e.destinatario = c.id where estatus = 2");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
                    
                    rs.getString(1),
-                   
+                   rs.getDouble(2),
+                   rs.getDouble(3),
+
                });
+
            }
         } catch ( Exception e) {
             System.out.println("Erro"+e);
         }
+            Coletando.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    if (e.getClickCount() == 2) {
+                        int row = Coletando.rowAtPoint(e.getPoint());
+                        int col = Coletando.columnAtPoint(e.getPoint());
+                        System.out.println(Coletando.getModel().getValueAt(row, 1).toString());
+                        System.out.println(Coletando.getModel().getValueAt(row, 2).toString());
+                        Mapa_1_marcador map = new Mapa_1_marcador((Double) Coletando.getModel().getValueAt(row, 1), (Double) Coletando.getModel().getValueAt(row, 2));
+                    }
+                }
+            });
     }
+   
+   
             
 
    private void tabela_destino(){
@@ -105,26 +144,42 @@ public class Home extends javax.swing.JFrame {
         model.setNumRows(0);   // listar tabela apartir de
         
         Destino.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
-      
+        Destino.removeColumn(Destino.getColumnModel().getColumn(2));
+        Destino.removeColumn(Destino.getColumnModel().getColumn(1));
+
         
         try {
            Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa from estatus where estatus = 3");  // passando conexao para pst
+           pst = conn.prepareStatement("select e.placa, c.coordX, c.coordY from estatus as e inner join clientes as c on e.destinatario = c.id where estatus = 3");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
                    
                    rs.getString(1),
-                   
+                   rs.getDouble(2),
+                   rs.getDouble(3),
+
                });
            }
         } catch ( Exception e) {
             System.out.println("Erro"+e);
         }
+        
+       Destino.addMouseListener(new MouseAdapter() {
+           public void mouseClicked(MouseEvent e) {
+               if (e.getClickCount() == 2) {
+                   int row = Destino.rowAtPoint(e.getPoint());
+                   int col = Destino.columnAtPoint(e.getPoint());
+                   System.out.println(Destino.getModel().getValueAt(row, 1).toString());
+                   System.out.println(Destino.getModel().getValueAt(row, 2).toString());
+                   Mapa_1_marcador map = new Mapa_1_marcador((Double) Destino.getModel().getValueAt(row, 1), (Double) Destino.getModel().getValueAt(row, 2));
+               }
+           }
+       });
     }
            
            private void tabela_descarga(){
@@ -133,29 +188,45 @@ public class Home extends javax.swing.JFrame {
         model.setNumRows(0);   // listar tabela apartir de
         
         Descarga.getColumnModel().getColumn(0).setPreferredWidth(10);  // colunas da tabela
-      
+        Descarga.removeColumn(Descarga.getColumnModel().getColumn(2));
+        Descarga.removeColumn(Descarga.getColumnModel().getColumn(1));
+
         
         try {
            Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa from estatus where estatus = 4");  // passando conexao para pst
+           pst = conn.prepareStatement("select e.placa, c.coordX, c.coordY from estatus as e inner join clientes as c on e.destinatario = c.id where estatus = 4");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
                    
                    rs.getString(1),
-                   
+                   rs.getDouble(2),
+                   rs.getDouble(3),
+
                });
            }
         } catch ( Exception e) {
             System.out.println("Erro"+e);
         }
+               Descarga.addMouseListener(new MouseAdapter() {
+                   public void mouseClicked(MouseEvent e) {
+                       if (e.getClickCount() == 2) {
+                           int row = Descarga.rowAtPoint(e.getPoint());
+                           int col = Descarga.columnAtPoint(e.getPoint());
+                           System.out.println(Descarga.getModel().getValueAt(row, 1).toString());
+                           System.out.println(Descarga.getModel().getValueAt(row, 2).toString());
+                           Mapa_1_marcador map = new Mapa_1_marcador((Double) Descarga.getModel().getValueAt(row, 1), (Double) Descarga.getModel().getValueAt(row, 2));
+                       }
+                   }
+               });
+
     }
     
-               private void tabela_finalizado(){
+        private void tabela_finalizado(){
         
         DefaultTableModel model = (DefaultTableModel) Finalizado.getModel(); //criando tabela
         model.setNumRows(0);   // listar tabela apartir de
@@ -182,9 +253,7 @@ public class Home extends javax.swing.JFrame {
             System.out.println("Erro"+e);
         }
     }
-
-    
-    
+               
     public Home(){
         menuAberto = false;
         initComponents();
@@ -194,6 +263,7 @@ public class Home extends javax.swing.JFrame {
         tabela_descarga();
         tabela_finalizado();
         tabela_veiculos();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -318,7 +388,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        Status_coletando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_coletando.png"))); // NOI18N
+        Status_coletando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_transito.png"))); // NOI18N
         Status_coletando.setBorderPainted(false);
 
         Status_destino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_coletando.png"))); // NOI18N
@@ -398,60 +468,70 @@ public class Home extends javax.swing.JFrame {
 
         Transito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Transito"
+                "Transito", "1", "2"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         Transito.setToolTipText("");
+        Transito.setColumnSelectionAllowed(false);
         Transito.setShowGrid(true);
         Transito.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Transito);
         if (Transito.getColumnModel().getColumnCount() > 0) {
             Transito.getColumnModel().getColumn(0).setResizable(false);
+            Transito.getColumnModel().getColumn(1).setResizable(false);
+            Transito.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jPanel3.add(jScrollPane2);
@@ -520,49 +600,56 @@ public class Home extends javax.swing.JFrame {
 
         Coletando.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Coletando"
+                "Coletando", "1", "2"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -574,6 +661,8 @@ public class Home extends javax.swing.JFrame {
         jScrollPane4.setViewportView(Coletando);
         if (Coletando.getColumnModel().getColumnCount() > 0) {
             Coletando.getColumnModel().getColumn(0).setResizable(false);
+            Coletando.getColumnModel().getColumn(1).setResizable(false);
+            Coletando.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jPanel3.add(jScrollPane4);
@@ -581,49 +670,56 @@ public class Home extends javax.swing.JFrame {
 
         Destino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Coletando"
+                "Destino", "1", "2"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -642,49 +738,56 @@ public class Home extends javax.swing.JFrame {
 
         Descarga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Descarga"
+                "Descarga", "1", "2"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -696,6 +799,8 @@ public class Home extends javax.swing.JFrame {
         jScrollPane7.setViewportView(Descarga);
         if (Descarga.getColumnModel().getColumnCount() > 0) {
             Descarga.getColumnModel().getColumn(0).setResizable(false);
+            Descarga.getColumnModel().getColumn(1).setResizable(false);
+            Descarga.getColumnModel().getColumn(2).setResizable(false);
         }
 
         jPanel3.add(jScrollPane7);

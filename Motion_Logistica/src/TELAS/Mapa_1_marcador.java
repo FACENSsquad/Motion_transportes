@@ -22,7 +22,7 @@ import org.jxmapviewer.viewer.TileFactoryInfo;
  */
 public class Mapa_1_marcador
 {
-    
+
     public Mapa_1_marcador(double lat, double lon) {
         //-23.51, -47.45
         mapa(lat,lon);
@@ -87,8 +87,8 @@ public class Mapa_1_marcador
         JFrame frame = new JFrame("JXMapviewer2 Example 6");
         frame.getContentPane().add(jXMapKit);
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        
 }
     
     

@@ -73,6 +73,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         veiculoss = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,7 +187,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        setSize(new java.awt.Dimension(716, 489));
+        setSize(new java.awt.Dimension(702, 482));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -195,7 +196,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+            this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
    

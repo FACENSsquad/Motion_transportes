@@ -102,6 +102,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -334,7 +335,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_Box_estadoActionPerformed
 
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
-        // TODO add your handling code here:
+            this.setVisible(false);
     }//GEN-LAST:event_jbutton1ActionPerformed
 
     private void button_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cadastrarActionPerformed

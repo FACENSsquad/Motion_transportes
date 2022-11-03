@@ -38,6 +38,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -228,7 +229,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
     }//GEN-LAST:event_Cod_destinoActionPerformed
 
     private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
-        // TODO add your handling code here:
+            this.setVisible(false);
     }//GEN-LAST:event_fecharActionPerformed
 
     private void button_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_confirmarActionPerformed

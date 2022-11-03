@@ -73,15 +73,66 @@ insert into motorista(nome, telefone)
 values("Joao Vito", "15991728561"),
 ("Vinicius", "15991759567"),
 ("Matheus", "15548125658"),
-("Eduardo", "15897662531");
+("Eduardo", "15897662531"),
+("Carlos Villagran","15123456789"),
+("Maria Antonieta de las Nieves","15123456789"),
+("Don Ramón","15123456789"),
+("Roberto Bolaños","15123456789"),
+("Edgar Vivar","15123456789"),
+("Lineu Silva","15123456789"),
+("Agostinho Carrara","15123456789"),
+("Maria Isabel","15123456789"),
+("Abelardo","15123456789"),
+("Marilda","15123456789"),
+("Floriano","15123456789"),
+("Mario","15123456789"),
+("Luigi","15123456789"),
+("Ana","15123456789"),
+("Fátima","15123456789"),
+("Luciano","15123456789"),
+("Fausto","15123456789"),
+("Marcos","15123456789"),
+("Patrícia","15123456789"),
+("Monaliza","15123456789"),
+("Evaristo","15123456789"),
+("Antonio","15123456789");
 
 insert into veiculo(placa, tipo_veiculo)
 values("FKL2F21", "Caminhão"),
-("DFL2F87", "Caminhão");
+("DFL2F87", "Caminhão"),
+("DKA6W24", "Caminhão"),
+("KJL9K21", "Caminhão"),
+("VNX4K02", "Caminhão"),
+("KJR4O12", "Caminhão"),
+("ZXC3N84", "Caminhão"),
+("MAZ2K04", "Caminhão"),
+("OWE6A53", "Caminhão"),
+("MCZ5Q23", "Caminhão"),
+("OKD9E23", "Caminhão"),
+("KDQ4M43", "Caminhão"),
+("PZC1O13", "Caminhão"),
+("TFF4K13", "Caminhão"),
+("GGH1B10", "Caminhão"),
+("OSD5R92", "Caminhão"),
+("AGH1B11", "Caminhão"),
+("BGH1B12", "Caminhão"),
+("CGH1B13", "Caminhão"),
+("DGH1B14", "Caminhão"),
+("EGH1B15", "Caminhão"),
+("FGH1B16", "Caminhão"),
+("HGH1B17", "Caminhão"),
+("IGH1B18", "Caminhão"),
+("JGH1B19", "Caminhão"),
+("KGH1B10", "Caminhão"),
+("LGH1B11", "Caminhão");
 
 insert into cliente(cnpj, nome_fantasia, endereco, uf, cidade, ddd, telefone, email)
 values("05454606000110", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823444", "logistica@forthjardim.com.br"),
-("05454606050110", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532223444", "istica@forthjardim.com.br");
+("05454606000111", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823445", "logistica@forthjardim.com.br2"),
+("05454606000112", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823446", "logistica@forthjardim.com.br3"),
+("05454606000113", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823447", "logistica@forthjardim.com.br4"),
+("05454606000114", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532823448", "logistica@forthjardim.com.br5"),
+("05454606050115", "Froth Jardim", "Rod antonio romano Schink, S/n", "SP", "Cerquilho", "15", "1532223449", "istica@forthjardim.com.br6");
 
 -- quantidade de logs realizados
 -- gatilho especificado em tempo real
@@ -118,9 +169,31 @@ delimiter ;
 
 -- Os inserts abaixo só funcionaram aqui no final! (ñ sei o pq)
 INSERT INTO estatus (estatus, placa, motorista, destinatario) 
-VALUES(1,'DFL2F87',1,1);
-INSERT INTO estatus (estatus, placa, motorista, destinatario) 
-VALUES(4,'FKL2F21',1,1);
+VALUES(1,"DFL2F87",1,1),
+(2,"FKL2F21",2,1),
+(4,"DFL2F87",4,2),
+(1,"DKA6W24",5,3),
+(2,"KJL9K21",6,3),
+(3,"VNX4K02",7,4),
+(4,"KJR4O12",8,4),
+(1,"MAZ2K04",10,1),
+(2,"OWE6A53",11,2),
+(2,"MCZ5Q23",12,2),
+(3,"OKD9E23",13,3),
+(3,"KDQ4M43",14,3),
+(4,"PZC1O13",15,4),
+(1,"TFF4K13",3,4),
+(5,"AGH1B11",16,5),
+(5,"BGH1B12",17,5),
+(5,"CGH1B13",18,5),
+(1,"DGH1B14", 19,1),
+(1,"EGH1B15", 20,1),
+(1,"FGH1B16", 21,1),
+(3,"HGH1B17", 22,2),
+(3,"IGH1B18", 23,3),
+(3,"JGH1B19", 24,4),
+(3,"KGH1B10", 25,4),
+(3,"LGH1B11", 26,4);
 
 /*
 gatilho = trigger,l false procedurer        
