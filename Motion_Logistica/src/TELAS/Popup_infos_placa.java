@@ -137,6 +137,7 @@ public class Popup_infos_placa extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println(coordX + " " + coordY);
         Mapa_1_marcador mapa = new Mapa_1_marcador(coordX,coordY);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -43,7 +43,7 @@ public class Mapa_1_marcador
         tooltip.setComponent(jXMapKit.getMainMap());
         jXMapKit.getMainMap().add(tooltip);
 
-        jXMapKit.setZoom(11);
+        jXMapKit.setZoom(6);
         jXMapKit.setAddressLocation(gp);
 
         jXMapKit.getMainMap().addMouseMotionListener(new MouseMotionListener() {
@@ -87,6 +87,7 @@ public class Mapa_1_marcador
         JFrame frame = new JFrame("JXMapviewer2 Example 6");
         frame.getContentPane().add(jXMapKit);
         frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
 }

@@ -62,7 +62,6 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Caixa_nome = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -71,6 +70,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         BD_qtdMOTO = new javax.swing.JLabel();
         dash = new javax.swing.JLabel();
         veiculoss = new javax.swing.JComboBox<>();
+        Caixa_nome = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
@@ -89,15 +89,6 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jLabel2.setText("Veiculo:");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(310, 110, 60, 16);
-
-        Caixa_nome.setBackground(java.awt.Color.white);
-        Caixa_nome.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_nome.setAutoscrolls(false);
-        Caixa_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_nome.setFocusable(false);
-        Caixa_nome.setPreferredSize(new java.awt.Dimension(10, 19));
-        jPanel2.add(Caixa_nome);
-        Caixa_nome.setBounds(90, 110, 150, 20);
 
         Cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
@@ -173,6 +164,10 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         veiculoss.setLightWeightPopupEnabled(false);
         jPanel2.add(veiculoss);
         veiculoss.setBounds(360, 110, 100, 20);
+
+        Caixa_nome.setText("jTextField1");
+        jPanel2.add(Caixa_nome);
+        Caixa_nome.setBounds(90, 110, 170, 22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

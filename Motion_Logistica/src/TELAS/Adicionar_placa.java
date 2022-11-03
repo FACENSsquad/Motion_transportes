@@ -24,15 +24,15 @@ public class Adicionar_placa extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         fechar = new javax.swing.JButton();
-        Cpd_motorista = new javax.swing.JTextField();
         button_confirmar = new javax.swing.JButton();
         Des_observação = new javax.swing.JLabel();
         Des_Codmotorista = new javax.swing.JLabel();
         Des_Codplaca = new javax.swing.JLabel();
         Des_Coddestino = new javax.swing.JLabel();
         N_placa1 = new javax.swing.JTextField();
+        Cpd_motorista1 = new javax.swing.JTextField();
         Cod_destino = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
         jToggleButton1.setText("jToggleButton1");
@@ -75,15 +75,6 @@ public class Adicionar_placa extends javax.swing.JFrame {
             }
         });
 
-        Cpd_motorista.setBackground(new java.awt.Color(255, 255, 255));
-        Cpd_motorista.setForeground(new java.awt.Color(0, 0, 0));
-        Cpd_motorista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Cpd_motorista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cpd_motoristaActionPerformed(evt);
-            }
-        });
-
         button_confirmar.setBackground(new java.awt.Color(255, 255, 255));
         button_confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
         button_confirmar.setBorderPainted(false);
@@ -112,58 +103,14 @@ public class Adicionar_placa extends javax.swing.JFrame {
         Des_Coddestino.setForeground(new java.awt.Color(0, 0, 0));
         Des_Coddestino.setText("Cod Destino:");
 
-        N_placa1.setBackground(new java.awt.Color(255, 255, 255));
-        N_placa1.setForeground(new java.awt.Color(0, 0, 0));
-        N_placa1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        N_placa1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                N_placa1ActionPerformed(evt);
-            }
-        });
-
-        Cod_destino.setBackground(new java.awt.Color(255, 255, 255));
-        Cod_destino.setForeground(new java.awt.Color(0, 0, 0));
-        Cod_destino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Cod_destino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cod_destinoActionPerformed(evt);
-            }
-        });
-
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217), 0));
-        jTextArea1.setFocusable(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Des_observação)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Des_Codmotorista)
-                                .addGap(4, 4, 4)
-                                .addComponent(Cpd_motorista, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(Des_Codplaca)
-                                .addGap(2, 2, 2)
-                                .addComponent(N_placa1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(Des_Coddestino)
-                                .addGap(1, 1, 1)
-                                .addComponent(Cod_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +123,24 @@ public class Adicionar_placa extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(button_confirmar)
                         .addGap(24, 24, 24))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Des_observação)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Des_Codmotorista)
+                        .addGap(15, 15, 15)
+                        .addComponent(Cpd_motorista1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Des_Codplaca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(N_placa1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(Des_Coddestino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cod_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,18 +149,18 @@ public class Adicionar_placa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechar))
-                .addGap(50, 50, 50)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(N_placa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Des_Codmotorista)
                     .addComponent(Des_Codplaca)
                     .addComponent(Des_Coddestino)
-                    .addComponent(Cpd_motorista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(N_placa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cod_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
+                    .addComponent(Cod_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cpd_motorista1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
                 .addComponent(Des_observação)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(button_confirmar)
                 .addGap(22, 22, 22))
@@ -216,24 +181,12 @@ public class Adicionar_placa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Cpd_motoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cpd_motoristaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Cpd_motoristaActionPerformed
-
-    private void N_placa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N_placa1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_N_placa1ActionPerformed
-
-    private void Cod_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cod_destinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Cod_destinoActionPerformed
-
     private void fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharActionPerformed
             this.setVisible(false);
     }//GEN-LAST:event_fecharActionPerformed
 
     private void button_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_confirmarActionPerformed
-        String placa = Cpd_motorista.getText();
+        String placa = N_placa1.getText();
         //int tempo = Integer.parseInt(Tempo_viagem.getText());
 
         Home home = new Home();
@@ -278,7 +231,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cod_destino;
-    private javax.swing.JTextField Cpd_motorista;
+    private javax.swing.JTextField Cpd_motorista1;
     private javax.swing.JLabel Des_Coddestino;
     private javax.swing.JLabel Des_Codmotorista;
     private javax.swing.JLabel Des_Codplaca;
@@ -289,7 +242,7 @@ public class Adicionar_placa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables

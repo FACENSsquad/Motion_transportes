@@ -27,7 +27,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         this.conn = this.conexao.mt_Conexao();
         
         
-        motorista.setNome(Caixa_nome.getText());
+        motorista.setNome(Caixa_nome1.getText());
         motorista.setTelefone(Caixa_telefone.getText());
         
         String sql = "insert into motorista(nome, telefone) values "
@@ -62,8 +62,6 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Caixa_nome = new javax.swing.JTextField();
-        Caixa_telefone = new javax.swing.JTextField();
         cadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -71,6 +69,8 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         descrição = new javax.swing.JLabel();
         BD_qtdMOTO = new javax.swing.JLabel();
         dash = new javax.swing.JLabel();
+        Caixa_telefone = new javax.swing.JTextField();
+        Caixa_nome1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
@@ -89,25 +89,6 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jLabel2.setText("Telefone:");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(310, 110, 60, 16);
-
-        Caixa_nome.setBackground(java.awt.Color.white);
-        Caixa_nome.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_nome.setAutoscrolls(false);
-        Caixa_nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_nome.setFocusable(false);
-        Caixa_nome.setPreferredSize(new java.awt.Dimension(10, 19));
-        jPanel2.add(Caixa_nome);
-        Caixa_nome.setBounds(90, 110, 150, 20);
-
-        Caixa_telefone.setBackground(java.awt.Color.white);
-        Caixa_telefone.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_telefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Caixa_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_telefone.setFocusable(false);
-        Caixa_telefone.setPreferredSize(new java.awt.Dimension(10, 19));
-        Caixa_telefone.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        jPanel2.add(Caixa_telefone);
-        Caixa_telefone.setBounds(370, 110, 150, 20);
 
         cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
@@ -175,6 +156,22 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(dash);
         dash.setBounds(80, 250, 100, 50);
 
+        Caixa_telefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_telefoneActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Caixa_telefone);
+        Caixa_telefone.setBounds(370, 110, 150, 22);
+
+        Caixa_nome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_nome1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Caixa_nome1);
+        Caixa_nome1.setBounds(90, 110, 150, 22);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,6 +196,14 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
             this.setVisible(false);
     }//GEN-LAST:event_jbutton1ActionPerformed
+
+    private void Caixa_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_telefoneActionPerformed
+
+    private void Caixa_nome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_nome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_nome1ActionPerformed
 
    
     public static void main(String args[]) {
@@ -236,7 +241,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BD_qtdMOTO;
-    private javax.swing.JTextField Caixa_nome;
+    private javax.swing.JTextField Caixa_nome1;
     private javax.swing.JTextField Caixa_telefone;
     private javax.swing.JButton cadastrar;
     private javax.swing.JLabel dash;

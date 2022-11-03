@@ -32,13 +32,13 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         this.conexao = new Conexao();
         this.conn = this.conexao.mt_Conexao();
         
-        destinatario.setNome(Cnpj.getText());
+        destinatario.setNome(Caixa_ddd.getText());
         destinatario.setEmail(Caixa_email.getText());
         destinatario.setDdd(Caixa_ddd.getText());
-        destinatario.setTelefone(Caixa_telefone.getText());
-        destinatario.setEndereco(Caixa_endereco.getText());
-        destinatario.setCidade(Caixa_cidade.getText());
-        destinatario.setCnpj(Cnpj.getText());
+        destinatario.setTelefone(Caixa_email.getText());
+        destinatario.setEndereco(Caixa_ddd.getText());
+        destinatario.setCidade(Caixa_ddd.getText());
+        destinatario.setCnpj(Caixa_ddd.getText());
         destinatario.setUf((String) Box_estado.getSelectedItem());
         
    
@@ -84,15 +84,8 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jbutton1 = new javax.swing.JButton();
-        Cnpj = new javax.swing.JTextField();
-        Caixa_endereco = new javax.swing.JTextField();
-        Caixa_cidade = new javax.swing.JTextField();
-        Caixa_ddd = new javax.swing.JTextField();
-        Caixa_telefone = new javax.swing.JTextField();
-        Caixa_email = new javax.swing.JTextField();
         Box_estado = new javax.swing.JComboBox<>();
         button_cadastrar = new javax.swing.JButton();
-        RazãoSoc = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -100,6 +93,13 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        Caixa_ddd = new javax.swing.JTextField();
+        Cnpj1 = new javax.swing.JTextField();
+        Caixa_cidade1 = new javax.swing.JTextField();
+        RazaoSoc1 = new javax.swing.JTextField();
+        Caixa_endereco1 = new javax.swing.JTextField();
+        Caixa_email = new javax.swing.JTextField();
+        Caixa_telefone1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -151,78 +151,6 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(jbutton1);
         jbutton1.setBounds(660, 10, 31, 26);
 
-        Cnpj.setBackground(new java.awt.Color(255, 255, 255));
-        Cnpj.setForeground(new java.awt.Color(0, 0, 0));
-        Cnpj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Cnpj.setFocusable(false);
-        Cnpj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CnpjActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Cnpj);
-        Cnpj.setBounds(100, 90, 200, 20);
-
-        Caixa_endereco.setBackground(new java.awt.Color(255, 255, 255));
-        Caixa_endereco.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_endereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_endereco.setFocusable(false);
-        Caixa_endereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_enderecoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Caixa_endereco);
-        Caixa_endereco.setBounds(420, 140, 200, 20);
-
-        Caixa_cidade.setBackground(new java.awt.Color(255, 255, 255));
-        Caixa_cidade.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_cidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_cidade.setFocusable(false);
-        Caixa_cidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_cidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Caixa_cidade);
-        Caixa_cidade.setBounds(100, 140, 200, 20);
-
-        Caixa_ddd.setBackground(new java.awt.Color(255, 255, 255));
-        Caixa_ddd.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_ddd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_ddd.setFocusable(false);
-        Caixa_ddd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_dddActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Caixa_ddd);
-        Caixa_ddd.setBounds(230, 190, 40, 20);
-
-        Caixa_telefone.setBackground(new java.awt.Color(255, 255, 255));
-        Caixa_telefone.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_telefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_telefone.setFocusable(false);
-        Caixa_telefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_telefoneActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Caixa_telefone);
-        Caixa_telefone.setBounds(380, 190, 120, 20);
-
-        Caixa_email.setBackground(new java.awt.Color(255, 255, 255));
-        Caixa_email.setForeground(new java.awt.Color(0, 0, 0));
-        Caixa_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        Caixa_email.setFocusable(false);
-        Caixa_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_emailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Caixa_email);
-        Caixa_email.setBounds(100, 250, 200, 20);
-
         Box_estado.setBackground(new java.awt.Color(255, 255, 255));
         Box_estado.setForeground(new java.awt.Color(0, 0, 0));
         Box_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SP", "MG", "RJ", "PN" }));
@@ -248,18 +176,6 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         });
         jPanel1.add(button_cadastrar);
         button_cadastrar.setBounds(580, 390, 100, 40);
-
-        RazãoSoc.setBackground(new java.awt.Color(255, 255, 255));
-        RazãoSoc.setForeground(new java.awt.Color(0, 0, 0));
-        RazãoSoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(217, 217, 217)));
-        RazãoSoc.setFocusable(false);
-        RazãoSoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RazãoSocActionPerformed(evt);
-            }
-        });
-        jPanel1.add(RazãoSoc);
-        RazãoSoc.setBounds(420, 90, 200, 20);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Endereço:");
@@ -296,39 +212,68 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(80, 190, 20, 20);
 
+        Caixa_ddd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_dddActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_ddd);
+        Caixa_ddd.setBounds(230, 190, 60, 30);
+
+        Cnpj1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cnpj1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cnpj1);
+        Cnpj1.setBounds(100, 82, 200, 30);
+
+        Caixa_cidade1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_cidade1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_cidade1);
+        Caixa_cidade1.setBounds(100, 132, 200, 30);
+
+        RazaoSoc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RazaoSoc1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RazaoSoc1);
+        RazaoSoc1.setBounds(420, 80, 200, 30);
+
+        Caixa_endereco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_endereco1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_endereco1);
+        Caixa_endereco1.setBounds(420, 130, 200, 30);
+
+        Caixa_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_emailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_email);
+        Caixa_email.setBounds(110, 240, 170, 30);
+
+        Caixa_telefone1.setText("jTextField1");
+        Caixa_telefone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_telefone1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_telefone1);
+        Caixa_telefone1.setBounds(370, 190, 170, 30);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void CnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CnpjActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CnpjActionPerformed
-
-    private void Caixa_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_cidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_cidadeActionPerformed
-
-    private void Caixa_dddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_dddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_dddActionPerformed
-
-    private void Caixa_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_telefoneActionPerformed
-
-    private void Caixa_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_emailActionPerformed
-
-    private void RazãoSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazãoSocActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RazãoSocActionPerformed
-
-    private void Caixa_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_enderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_enderecoActionPerformed
 
     private void Box_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Box_estadoActionPerformed
         // TODO add your handling code here:
@@ -341,6 +286,34 @@ public class Cadastro_cliente extends javax.swing.JFrame {
     private void button_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cadastrarActionPerformed
         Cadastrar_Destino(destinatario);
     }//GEN-LAST:event_button_cadastrarActionPerformed
+
+    private void Caixa_dddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_dddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_dddActionPerformed
+
+    private void Cnpj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cnpj1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cnpj1ActionPerformed
+
+    private void Caixa_cidade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_cidade1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_cidade1ActionPerformed
+
+    private void RazaoSoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaoSoc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RazaoSoc1ActionPerformed
+
+    private void Caixa_endereco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_endereco1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_endereco1ActionPerformed
+
+    private void Caixa_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_emailActionPerformed
+
+    private void Caixa_telefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefone1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_telefone1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,13 +353,13 @@ public class Cadastro_cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Box_estado;
-    private javax.swing.JTextField Caixa_cidade;
+    private javax.swing.JTextField Caixa_cidade1;
     private javax.swing.JTextField Caixa_ddd;
     private javax.swing.JTextField Caixa_email;
-    private javax.swing.JTextField Caixa_endereco;
-    private javax.swing.JTextField Caixa_telefone;
-    private javax.swing.JTextField Cnpj;
-    private javax.swing.JTextField RazãoSoc;
+    private javax.swing.JTextField Caixa_endereco1;
+    private javax.swing.JTextField Caixa_telefone1;
+    private javax.swing.JTextField Cnpj1;
+    private javax.swing.JTextField RazaoSoc1;
     private javax.swing.JButton button_cadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
