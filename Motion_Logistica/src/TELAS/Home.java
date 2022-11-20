@@ -2,11 +2,13 @@
 package TELAS;
 
 import CONEXAO.Conexao;
+import Objetos.MudaStatusPlaca;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -17,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 public class Home extends javax.swing.JFrame {
        boolean menuAberto;
        Menu menuObj = new Menu();
+       String placaSelecionada;
+       
        private void tabela_veiculos(){
         
         DefaultTableModel model = (DefaultTableModel) Veiculos.getModel(); //criando tabela
@@ -81,6 +85,12 @@ public class Home extends javax.swing.JFrame {
         //Pega os valores de cada célula quando é dado o duplo clique
         Transito.addMouseListener(new MouseAdapter() {
         public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1){
+            int row = Transito.rowAtPoint(e.getPoint());
+            placaSelecionada = Transito.getModel().getValueAt(row, 0).toString();       
+            System.out.println(placaSelecionada);
+        }    
+            
         if (e.getClickCount() == 2) {
         int row=Transito.rowAtPoint(e.getPoint());
         int col= Transito.columnAtPoint(e.getPoint());
@@ -127,6 +137,12 @@ public class Home extends javax.swing.JFrame {
         }
             Coletando.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
+                    if (e.getClickCount() == 1) {
+                        int row = Coletando.rowAtPoint(e.getPoint());
+                        placaSelecionada = Coletando.getModel().getValueAt(row, 0).toString();
+                        System.out.println(placaSelecionada);
+                    }
+
                     if (e.getClickCount() == 2) {
                         int row = Coletando.rowAtPoint(e.getPoint());
                         int col = Coletando.columnAtPoint(e.getPoint());
@@ -177,6 +193,11 @@ public class Home extends javax.swing.JFrame {
         
        Destino.addMouseListener(new MouseAdapter() {
            public void mouseClicked(MouseEvent e) {
+               if (e.getClickCount() == 1) {
+                   int row = Destino.rowAtPoint(e.getPoint());
+                   placaSelecionada = Destino.getModel().getValueAt(row, 0).toString();
+                   System.out.println(placaSelecionada);
+               }
                if (e.getClickCount() == 2) {
                    int row = Destino.rowAtPoint(e.getPoint());
                    int col = Destino.columnAtPoint(e.getPoint());
@@ -224,6 +245,11 @@ public class Home extends javax.swing.JFrame {
         }
                Descarga.addMouseListener(new MouseAdapter() {
                    public void mouseClicked(MouseEvent e) {
+                       if (e.getClickCount() == 1) {
+                           int row = Descarga.rowAtPoint(e.getPoint());
+                           placaSelecionada = Descarga.getModel().getValueAt(row, 0).toString();
+                           System.out.println(placaSelecionada);
+                       }
                        if (e.getClickCount() == 2) {
                            int row = Descarga.rowAtPoint(e.getPoint());
                            int col = Descarga.columnAtPoint(e.getPoint());
@@ -306,7 +332,7 @@ public class Home extends javax.swing.JFrame {
         Status_descarga3 = new javax.swing.JButton();
         Status_descarga = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botaoRemovePlaca = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         Transito = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -321,6 +347,7 @@ public class Home extends javax.swing.JFrame {
         Finalizado = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
         Alerta = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -469,16 +496,16 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 695));
         jPanel3.setLayout(null);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_addPlaca.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusCycleRoot(true);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoRemovePlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_removePlaca.png"))); // NOI18N
+        botaoRemovePlaca.setBorderPainted(false);
+        botaoRemovePlaca.setFocusCycleRoot(true);
+        botaoRemovePlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoRemovePlacaActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1);
-        jButton1.setBounds(0, 10, 32, 31);
+        jPanel3.add(botaoRemovePlaca);
+        botaoRemovePlaca.setBounds(0, 60, 32, 31);
 
         Transito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -538,6 +565,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Transito.setToolTipText("");
+        Transito.setRowSelectionAllowed(false);
         Transito.setShowGrid(true);
         Transito.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Transito);
@@ -669,6 +697,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Coletando.setToolTipText("");
+        Coletando.setRowSelectionAllowed(false);
         Coletando.setShowGrid(true);
         Coletando.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(Coletando);
@@ -739,6 +768,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Destino.setToolTipText("");
+        Destino.setRowSelectionAllowed(false);
         Destino.setShowGrid(true);
         Destino.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(Destino);
@@ -807,6 +837,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Descarga.setToolTipText("");
+        Descarga.setRowSelectionAllowed(false);
         Descarga.setShowGrid(true);
         Descarga.getTableHeader().setReorderingAllowed(false);
         jScrollPane7.setViewportView(Descarga);
@@ -870,6 +901,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Finalizado.setToolTipText("");
+        Finalizado.setRowSelectionAllowed(false);
         Finalizado.setShowGrid(true);
         Finalizado.getTableHeader().setReorderingAllowed(false);
         jScrollPane8.setViewportView(Finalizado);
@@ -931,6 +963,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Alerta.setToolTipText("");
+        Alerta.setRowSelectionAllowed(false);
         Alerta.setShowGrid(true);
         Alerta.getTableHeader().setReorderingAllowed(false);
         jScrollPane9.setViewportView(Alerta);
@@ -941,6 +974,17 @@ public class Home extends javax.swing.JFrame {
         jPanel3.add(jScrollPane9);
         jScrollPane9.setBounds(1100, 0, 150, 590);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_addPlaca.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setFocusCycleRoot(true);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3);
+        jButton3.setBounds(0, 10, 32, 31);
+
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 120, 1280, 685);
 
@@ -948,9 +992,14 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void botaoRemovePlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemovePlacaActionPerformed
+        if (placaSelecionada == null){
+            JOptionPane.showMessageDialog(null, "Nenhuma placa selecionada");
+        }
+        else{
+        MudaStatusPlaca.removePlaca(placaSelecionada);
+        }
+    }//GEN-LAST:event_botaoRemovePlacaActionPerformed
 
     private void Status_transitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Status_transitoActionPerformed
         // TODO add your handling code here:
@@ -971,6 +1020,11 @@ public class Home extends javax.swing.JFrame {
             menuAberto = false;
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Cadastro_veiculo veiculo = new Cadastro_veiculo();
+        veiculo.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1023,8 +1077,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton Status_transito;
     private javax.swing.JTable Transito;
     private javax.swing.JTable Veiculos;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botaoRemovePlaca;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
