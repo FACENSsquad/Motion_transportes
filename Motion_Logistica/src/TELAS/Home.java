@@ -34,16 +34,12 @@ public class Home extends javax.swing.JFrame {
            PreparedStatement pst;  
            ResultSet rs;
            
-           pst = conn.prepareStatement("select placa, coordX, coordY from estatus where estatus = 0");  // passando conexao para pst
+           pst = conn.prepareStatement("select v.placa from estatus as e right join veiculo as v on e.placa = v.placa where e.estatus is NULL");  // passando conexao para pst
            rs = pst.executeQuery();      //executando  os valores da conexao com result set
            
            while (rs.next()){   // lendo os valores do banco, utilizando netx para percorrer os dados
                model.addRow(new Object[]{
-                   
-                   rs.getString(1),
-                   rs.getDouble(2),
-                   rs.getDouble(3),
-
+                   rs.getString(1)
                });
            }
         } catch ( Exception e) {
