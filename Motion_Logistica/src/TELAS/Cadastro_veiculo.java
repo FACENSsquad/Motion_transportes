@@ -164,8 +164,6 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         veiculoss.setLightWeightPopupEnabled(false);
         jPanel2.add(veiculoss);
         veiculoss.setBounds(360, 110, 100, 20);
-
-        Caixa_nome.setText("jTextField1");
         jPanel2.add(Caixa_nome);
         Caixa_nome.setBounds(90, 110, 170, 22);
 
