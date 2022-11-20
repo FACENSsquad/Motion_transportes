@@ -12,6 +12,24 @@ public class Destinatario {
     private String telefone;
     private String email;
     private String cnpj;
+    private double coordX;
+    private double coordY;
+
+    public double getCoordX() {
+        return coordX;
+    }
+
+    public void setCoordX(double coordX) {
+        this.coordX = coordX;
+    }
+
+    public double getCoordY() {
+        return coordY;
+    }
+
+    public void setCoordY(double coordY) {
+        this.coordY = coordY;
+    }
 
     public String getNome() {
         return nome;

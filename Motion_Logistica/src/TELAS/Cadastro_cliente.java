@@ -32,24 +32,26 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         this.conexao = new Conexao();
         this.conn = this.conexao.mt_Conexao();
         
-        destinatario.setNome(Caixa_ddd.getText());
-        destinatario.setEmail(Caixa_email.getText());
-        destinatario.setDdd(Caixa_ddd.getText());
-        destinatario.setTelefone(Caixa_email.getText());
-        destinatario.setEndereco(Caixa_ddd.getText());
-        destinatario.setCidade(Caixa_ddd.getText());
-        destinatario.setCnpj(Caixa_ddd.getText());
+        destinatario.setCnpj(Cnpj.getText());
+        destinatario.setNome(RazaoSoc.getText());
+        destinatario.setEndereco(Caixa_endereco.getText());
         destinatario.setUf((String) Box_estado.getSelectedItem());
-        
+        destinatario.setCidade(Caixa_cidade.getText());
+        destinatario.setDdd(Caixa_ddd.getText());
+        destinatario.setTelefone(Caixa_telefone.getText());
+        destinatario.setEmail(Caixa_email.getText());
+        destinatario.setCoordX(Double.parseDouble(Caixa_coordX.getText()));
+        destinatario.setCoordY(Double.parseDouble(Caixa_coordY.getText()));
+
    
        
         String sql = "insert into cliente(cnpj, nome_fantasia, endereco, uf,"
-                + " cidade, ddd, telefone, email) values(?, ?, ?, ?, ?, ?, ?, ?) ";
+                + " cidade, ddd, telefone, email, coordX, coordY) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         
         
         try {
             
-            PreparedStatement pst = this.conn.prepareStatement(sql);
+           PreparedStatement pst = this.conn.prepareStatement(sql);
            pst.setString(1, destinatario.getCnpj());
            pst.setString(2, destinatario.getNome());
            pst.setString(3, destinatario.getEndereco());
@@ -58,7 +60,9 @@ public class Cadastro_cliente extends javax.swing.JFrame {
            pst.setString(6, destinatario.getDdd());
            pst.setString(7, destinatario.getTelefone());
            pst.setString(8, destinatario.getEmail());
-            
+           pst.setDouble(9, destinatario.getCoordX());
+           pst.setDouble(10, destinatario.getCoordY());
+
            
            pst.execute();
         } catch (Exception e) {
@@ -94,12 +98,18 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Caixa_ddd = new javax.swing.JTextField();
-        Cnpj1 = new javax.swing.JTextField();
-        Caixa_cidade1 = new javax.swing.JTextField();
-        RazaoSoc1 = new javax.swing.JTextField();
-        Caixa_endereco1 = new javax.swing.JTextField();
+        Cnpj = new javax.swing.JTextField();
+        Caixa_cidade = new javax.swing.JTextField();
+        RazaoSoc = new javax.swing.JTextField();
+        Caixa_endereco = new javax.swing.JTextField();
         Caixa_email = new javax.swing.JTextField();
-        Caixa_telefone1 = new javax.swing.JTextField();
+        Caixa_coordX = new javax.swing.JTextField();
+        Caixa_telefone = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        Caixa_telefone3 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        Caixa_coordY = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -188,9 +198,9 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel3.setBounds(70, 90, 40, 20);
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Telefone:");
+        jLabel4.setText("Coordenada (x):");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(310, 190, 60, 20);
+        jLabel4.setBounds(50, 310, 90, 20);
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Cidade:");
@@ -200,7 +210,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Email:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(70, 250, 30, 20);
+        jLabel7.setBounds(60, 250, 40, 20);
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DDD:");
@@ -212,6 +222,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(80, 190, 20, 20);
 
+        Caixa_ddd.setText("15");
         Caixa_ddd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Caixa_dddActionPerformed(evt);
@@ -220,38 +231,43 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(Caixa_ddd);
         Caixa_ddd.setBounds(230, 190, 60, 30);
 
-        Cnpj1.addActionListener(new java.awt.event.ActionListener() {
+        Cnpj.setText("05454606000110");
+        Cnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cnpj1ActionPerformed(evt);
+                CnpjActionPerformed(evt);
             }
         });
-        jPanel1.add(Cnpj1);
-        Cnpj1.setBounds(100, 82, 200, 30);
+        jPanel1.add(Cnpj);
+        Cnpj.setBounds(100, 82, 200, 30);
 
-        Caixa_cidade1.addActionListener(new java.awt.event.ActionListener() {
+        Caixa_cidade.setText("Votorantim");
+        Caixa_cidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_cidade1ActionPerformed(evt);
+                Caixa_cidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(Caixa_cidade1);
-        Caixa_cidade1.setBounds(100, 132, 200, 30);
+        jPanel1.add(Caixa_cidade);
+        Caixa_cidade.setBounds(100, 132, 200, 30);
 
-        RazaoSoc1.addActionListener(new java.awt.event.ActionListener() {
+        RazaoSoc.setText("Fabrica de fabricas");
+        RazaoSoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RazaoSoc1ActionPerformed(evt);
+                RazaoSocActionPerformed(evt);
             }
         });
-        jPanel1.add(RazaoSoc1);
-        RazaoSoc1.setBounds(420, 80, 200, 30);
+        jPanel1.add(RazaoSoc);
+        RazaoSoc.setBounds(420, 80, 200, 30);
 
-        Caixa_endereco1.addActionListener(new java.awt.event.ActionListener() {
+        Caixa_endereco.setText("Rua rua");
+        Caixa_endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_endereco1ActionPerformed(evt);
+                Caixa_enderecoActionPerformed(evt);
             }
         });
-        jPanel1.add(Caixa_endereco1);
-        Caixa_endereco1.setBounds(420, 130, 200, 30);
+        jPanel1.add(Caixa_endereco);
+        Caixa_endereco.setBounds(420, 130, 200, 30);
 
+        Caixa_email.setText("fabrica@fabrica.com");
         Caixa_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Caixa_emailActionPerformed(evt);
@@ -260,14 +276,55 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(Caixa_email);
         Caixa_email.setBounds(110, 240, 170, 30);
 
-        Caixa_telefone1.setText("jTextField1");
-        Caixa_telefone1.addActionListener(new java.awt.event.ActionListener() {
+        Caixa_coordX.setText("-23.51");
+        Caixa_coordX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Caixa_telefone1ActionPerformed(evt);
+                Caixa_coordXActionPerformed(evt);
             }
         });
-        jPanel1.add(Caixa_telefone1);
-        Caixa_telefone1.setBounds(370, 190, 170, 30);
+        jPanel1.add(Caixa_coordX);
+        Caixa_coordX.setBounds(150, 300, 170, 30);
+
+        Caixa_telefone.setText("999999999");
+        Caixa_telefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_telefoneActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_telefone);
+        Caixa_telefone.setBounds(370, 190, 170, 30);
+
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Telefone:");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(310, 190, 60, 20);
+
+        Caixa_telefone3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_telefone3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_telefone3);
+        Caixa_telefone3.setBounds(150, 300, 170, 30);
+
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Coordenada (x):");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(50, 310, 90, 20);
+
+        Caixa_coordY.setText("-47.45");
+        Caixa_coordY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caixa_coordYActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Caixa_coordY);
+        Caixa_coordY.setBounds(150, 350, 170, 30);
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Coordenada (y):");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(50, 360, 90, 20);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
 
@@ -291,29 +348,41 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Caixa_dddActionPerformed
 
-    private void Cnpj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cnpj1ActionPerformed
+    private void CnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Cnpj1ActionPerformed
+    }//GEN-LAST:event_CnpjActionPerformed
 
-    private void Caixa_cidade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_cidade1ActionPerformed
+    private void Caixa_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_cidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_cidade1ActionPerformed
+    }//GEN-LAST:event_Caixa_cidadeActionPerformed
 
-    private void RazaoSoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaoSoc1ActionPerformed
+    private void RazaoSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaoSocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RazaoSoc1ActionPerformed
+    }//GEN-LAST:event_RazaoSocActionPerformed
 
-    private void Caixa_endereco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_endereco1ActionPerformed
+    private void Caixa_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_enderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_endereco1ActionPerformed
+    }//GEN-LAST:event_Caixa_enderecoActionPerformed
 
     private void Caixa_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Caixa_emailActionPerformed
 
-    private void Caixa_telefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefone1ActionPerformed
+    private void Caixa_coordXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_coordXActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Caixa_telefone1ActionPerformed
+    }//GEN-LAST:event_Caixa_coordXActionPerformed
+
+    private void Caixa_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_telefoneActionPerformed
+
+    private void Caixa_telefone3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_telefone3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_telefone3ActionPerformed
+
+    private void Caixa_coordYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_coordYActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caixa_coordYActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,15 +422,21 @@ public class Cadastro_cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Box_estado;
-    private javax.swing.JTextField Caixa_cidade1;
+    private javax.swing.JTextField Caixa_cidade;
+    private javax.swing.JTextField Caixa_coordX;
+    private javax.swing.JTextField Caixa_coordY;
     private javax.swing.JTextField Caixa_ddd;
     private javax.swing.JTextField Caixa_email;
-    private javax.swing.JTextField Caixa_endereco1;
-    private javax.swing.JTextField Caixa_telefone1;
-    private javax.swing.JTextField Cnpj1;
-    private javax.swing.JTextField RazaoSoc1;
+    private javax.swing.JTextField Caixa_endereco;
+    private javax.swing.JTextField Caixa_telefone;
+    private javax.swing.JTextField Caixa_telefone3;
+    private javax.swing.JTextField Cnpj;
+    private javax.swing.JTextField RazaoSoc;
     private javax.swing.JButton button_cadastrar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
