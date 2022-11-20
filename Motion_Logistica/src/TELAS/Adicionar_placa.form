@@ -248,6 +248,9 @@
         <Component class="javax.swing.JTextField" name="N_placa1">
         </Component>
         <Component class="javax.swing.JTextField" name="Cpd_motorista1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cpd_motorista1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Cod_destino">
         </Component>

@@ -6,6 +6,7 @@ import CONEXAO.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import BEANS.Veiculo;
 
 public class Cadastro_veiculo extends javax.swing.JFrame {
 
@@ -18,25 +19,25 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
        private Connection conn;
        private Conexao conexao;
        
-       Motorista motorista = new Motorista(); //acessar os atributos da classe Motorista
+       Veiculo veiculo = new Veiculo(); //acessar os atributos da classe Motorista
        
     
-    public void Cadastrar_Motorista(Motorista motorista){
+    public void Cadastrar_Veiculo(Veiculo veiculo){
     
         this.conexao = new Conexao();
         this.conn = this.conexao.mt_Conexao();
         
         
-        motorista.setNome(Caixa_nome.getText());
-        //motorista.setTelefone(Caixa_telefone.getText());
+        veiculo.setPlaca(Caixa_nome.getText());
+        veiculo.setTipo_veiculo(veiculoss.getSelectedItem().toString());
         
-        String sql = "insert into motorista(nome, telefone) values "
+        String sql = "insert into veiculo(placa, tipo_veiculo) values "
                    + "(?, ?)";
         
         try {
             PreparedStatement pst = this.conn.prepareStatement(sql);
-            pst.setString(1, motorista.getNome());
-            pst.setString(2, motorista.getTelefone());
+            pst.setString(1, veiculo.getPlaca());
+            pst.setString(2, veiculo.getTipo_veiculo());
            
             pst.execute();
             
@@ -185,7 +186,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        Cadastrar_Motorista(motorista);
+        Cadastrar_Veiculo(veiculo);
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

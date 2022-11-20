@@ -103,6 +103,12 @@ public class Adicionar_placa extends javax.swing.JFrame {
         Des_Coddestino.setForeground(new java.awt.Color(0, 0, 0));
         Des_Coddestino.setText("Cod Destino:");
 
+        Cpd_motorista1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cpd_motorista1ActionPerformed(evt);
+            }
+        });
+
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
@@ -192,6 +198,10 @@ public class Adicionar_placa extends javax.swing.JFrame {
         Home home = new Home();
         //  home.Contador(placa, tempo);
     }//GEN-LAST:event_button_confirmarActionPerformed
+
+    private void Cpd_motorista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cpd_motorista1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cpd_motorista1ActionPerformed
 
     /**
      * @param args the command line arguments
