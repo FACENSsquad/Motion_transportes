@@ -21,6 +21,9 @@ public class Home extends javax.swing.JFrame {
        Menu menuObj = new Menu();
        String placaSelecionada;
        
+       private void recarregarTudo(){
+       }
+       
        private void tabela_veiculos(){
         
         DefaultTableModel model = (DefaultTableModel) Veiculos.getModel(); //criando tabela
@@ -994,6 +997,9 @@ public class Home extends javax.swing.JFrame {
         }
         else{
         MudaStatusPlaca.removePlaca(placaSelecionada);
+        Home home = new Home();
+        home.setVisible(true);
+        this.dispose();
         }
     }//GEN-LAST:event_botaoRemovePlacaActionPerformed
 
