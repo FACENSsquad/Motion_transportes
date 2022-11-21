@@ -22,6 +22,7 @@ public class Home extends javax.swing.JFrame {
        String placaSelecionada;
        
        private void recarregarTudo(){
+           //sem uso
        }
        
        private void tabela_veiculos(){
@@ -347,6 +348,7 @@ public class Home extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         Alerta = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -628,6 +630,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Veiculos.setToolTipText("");
+        Veiculos.setRowSelectionAllowed(false);
         Veiculos.setShowGrid(true);
         Veiculos.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(Veiculos);
@@ -984,6 +987,15 @@ public class Home extends javax.swing.JFrame {
         jPanel3.add(jButton3);
         jButton3.setBounds(0, 10, 32, 31);
 
+        jToggleButton1.setText("Atribuir status");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jToggleButton1);
+        jToggleButton1.setBounds(40, 610, 160, 50);
+
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 120, 1280, 685);
 
@@ -1027,6 +1039,10 @@ public class Home extends javax.swing.JFrame {
         Cadastro_veiculo veiculo = new Cadastro_veiculo();
         veiculo.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1101,6 +1117,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables

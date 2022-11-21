@@ -144,7 +144,7 @@ public class Popup_infos_placa extends javax.swing.JFrame {
         jLabel4.setText(String.valueOf(motorista));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel6.setText("Placa:");
+        jLabel6.setText("Veículo:");
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));

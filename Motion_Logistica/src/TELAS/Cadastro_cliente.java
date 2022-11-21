@@ -231,7 +231,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(Caixa_ddd);
         Caixa_ddd.setBounds(230, 190, 60, 30);
 
-        Cnpj.setText("05454606000110");
+        Cnpj.setText("05454606980110");
         Cnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CnpjActionPerformed(evt);
@@ -249,7 +249,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(Caixa_cidade);
         Caixa_cidade.setBounds(100, 132, 200, 30);
 
-        RazaoSoc.setText("Fabrica de fabricas");
+        RazaoSoc.setText("Cliente Exemplo");
         RazaoSoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RazaoSocActionPerformed(evt);
@@ -258,7 +258,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(RazaoSoc);
         RazaoSoc.setBounds(420, 80, 200, 30);
 
-        Caixa_endereco.setText("Rua rua");
+        Caixa_endereco.setText("Rua 1 Jardim 2");
         Caixa_endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Caixa_enderecoActionPerformed(evt);
@@ -267,7 +267,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
         jPanel1.add(Caixa_endereco);
         Caixa_endereco.setBounds(420, 130, 200, 30);
 
-        Caixa_email.setText("fabrica@fabrica.com");
+        Caixa_email.setText("cliente@cliente.com");
         Caixa_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Caixa_emailActionPerformed(evt);
