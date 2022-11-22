@@ -84,7 +84,7 @@ public class Mapa_1_marcador
         });
 
         // Display the viewer in a JFrame
-        JFrame frame = new JFrame("JXMapviewer2 Example 6");
+        JFrame frame = new JFrame("Mapa");
         frame.getContentPane().add(jXMapKit);
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
