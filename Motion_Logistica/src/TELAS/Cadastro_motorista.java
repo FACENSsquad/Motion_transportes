@@ -191,6 +191,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
         Cadastrar_Motorista(motorista);
+        this.dispose();
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed

@@ -342,6 +342,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
 
     private void button_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cadastrarActionPerformed
         Cadastrar_Destino(destinatario);
+        this.dispose();
     }//GEN-LAST:event_button_cadastrarActionPerformed
 
     private void Caixa_dddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_dddActionPerformed

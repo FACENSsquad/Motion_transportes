@@ -349,6 +349,7 @@ public class Home extends javax.swing.JFrame {
         Alerta = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        botaoRemovePlaca1 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -497,7 +498,9 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 695));
         jPanel3.setLayout(null);
 
-        botaoRemovePlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_removePlaca.png"))); // NOI18N
+        botaoRemovePlaca.setBackground(new java.awt.Color(255, 255, 255));
+        botaoRemovePlaca.setForeground(new java.awt.Color(51, 255, 51));
+        botaoRemovePlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/atualizar.png"))); // NOI18N
         botaoRemovePlaca.setBorderPainted(false);
         botaoRemovePlaca.setFocusCycleRoot(true);
         botaoRemovePlaca.addActionListener(new java.awt.event.ActionListener() {
@@ -506,7 +509,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(botaoRemovePlaca);
-        botaoRemovePlaca.setBounds(0, 60, 32, 31);
+        botaoRemovePlaca.setBounds(0, 110, 32, 31);
 
         Transito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -577,7 +580,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(220, 0, 160, 590);
+        jScrollPane2.setBounds(220, 0, 160, 450);
 
         Veiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -639,7 +642,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 0, 160, 590);
+        jScrollPane3.setBounds(40, 0, 160, 450);
 
         Coletando.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -710,7 +713,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane4);
-        jScrollPane4.setBounds(400, 0, 160, 590);
+        jScrollPane4.setBounds(400, 0, 160, 450);
 
         Destino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -779,7 +782,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane6);
-        jScrollPane6.setBounds(580, 0, 150, 590);
+        jScrollPane6.setBounds(580, 0, 150, 450);
 
         Descarga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -850,7 +853,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane7);
-        jScrollPane7.setBounds(750, 0, 150, 590);
+        jScrollPane7.setBounds(750, 0, 150, 450);
 
         Finalizado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -912,7 +915,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane8);
-        jScrollPane8.setBounds(920, 0, 150, 590);
+        jScrollPane8.setBounds(920, 0, 150, 450);
 
         Alerta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -974,7 +977,7 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane9);
-        jScrollPane9.setBounds(1100, 0, 150, 590);
+        jScrollPane9.setBounds(1100, 0, 150, 450);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_addPlaca.png"))); // NOI18N
         jButton3.setBorderPainted(false);
@@ -994,7 +997,18 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jToggleButton1);
-        jToggleButton1.setBounds(40, 610, 160, 50);
+        jToggleButton1.setBounds(40, 470, 160, 50);
+
+        botaoRemovePlaca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_removePlaca.png"))); // NOI18N
+        botaoRemovePlaca1.setBorderPainted(false);
+        botaoRemovePlaca1.setFocusCycleRoot(true);
+        botaoRemovePlaca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemovePlaca1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(botaoRemovePlaca1);
+        botaoRemovePlaca1.setBounds(0, 60, 32, 31);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 120, 1280, 685);
@@ -1004,15 +1018,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoRemovePlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemovePlacaActionPerformed
-        if (placaSelecionada == null){
-            JOptionPane.showMessageDialog(null, "Nenhuma placa selecionada");
-        }
-        else{
-        MudaStatusPlaca.removePlaca(placaSelecionada);
         Home home = new Home();
         home.setVisible(true);
         this.dispose();
-        }
     }//GEN-LAST:event_botaoRemovePlacaActionPerformed
 
     private void Status_transitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Status_transitoActionPerformed
@@ -1043,6 +1051,18 @@ public class Home extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void botaoRemovePlaca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemovePlaca1ActionPerformed
+        if (placaSelecionada == null){
+            JOptionPane.showMessageDialog(null, "Nenhuma placa selecionada");
+        }
+        else{
+        MudaStatusPlaca.removePlaca(placaSelecionada);
+        Home home = new Home();
+        home.setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_botaoRemovePlaca1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1096,6 +1116,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable Transito;
     private javax.swing.JTable Veiculos;
     private javax.swing.JButton botaoRemovePlaca;
+    private javax.swing.JButton botaoRemovePlaca1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
