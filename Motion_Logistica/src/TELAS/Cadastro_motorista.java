@@ -21,12 +21,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
        private Connection conn;
        private Conexao conexao;
        
-    public void conexao_cadastrar(){
-     this.conexao = new Conexao();
-     this.conn = this.conexao.mt_Conexao();
-    }
 
-       
        Motorista motorista = new Motorista(); //acessar os atributos da classe Motorista
        
     
@@ -65,15 +60,18 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     
     public void delete(){
         
+        this.conexao = new Conexao();
+        this.conn = this.conexao.mt_Conexao();
+        
         int confirmar;
-        String message = "Deseja realmente remover este cliente?";
+        String message = "Deseja realmente remover este Motorista?";
         
         confirmar = JOptionPane.showConfirmDialog(null, message);
        
         
         if(confirmar == JOptionPane.YES_OPTION){
             
-        String sql = "delete from motorista where codigo = ?";
+        String sql = "delete from motorista where id = ?";
         try {
              PreparedStatement pst = this.conn.prepareStatement(sql);
              pst.setString(1, Caixa_codigo.getText());
@@ -81,7 +79,8 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro em metodo DELETE motorista");
+            JOptionPane.showMessageDialog(null,"Não foi possivel remover este motorista, verifique se ele encontra-se em viagem");
+            System.out.println(e);
         }
     } else if(confirmar == JOptionPane.NO_OPTION) {
      dispose();
@@ -89,6 +88,9 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     }
     
     public void consultar (){
+        
+        this.conexao = new Conexao();
+        this.conn = this.conexao.mt_Conexao();
     
         String sql = "select * from motorista where id = ?;";
         ResultSet rs;
@@ -155,9 +157,12 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     
     
     public void update_motorista (){
+        
+        this.conexao = new Conexao();
+        this.conn = this.conexao.mt_Conexao();
    
-        String sql = "update motorista set nome = ?, telefone = ?, "
-                      + "where codigo = ?; ";
+        String sql = "update motorista set nome = ?, telefone = ? "
+                      + "where id = ?;";
         try {
             PreparedStatement pst = this.conn.prepareStatement(sql);
             pst.setString(1, Caixa_nome1.getText());
@@ -169,6 +174,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             
         } catch (Exception e) {
            JOptionPane.showMessageDialog(null,"Erro em  UPDATE Motorista");
+            System.out.println(e);
         }  
     }
     
@@ -315,6 +321,11 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jLabel3.setBounds(50, 110, 40, 20);
 
         Botton_Atualizar.setText("Atualizar");
+        Botton_Atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botton_AtualizarActionPerformed(evt);
+            }
+        });
         jPanel2.add(Botton_Atualizar);
         Botton_Atualizar.setBounds(70, 260, 77, 25);
 
@@ -379,6 +390,12 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     private void Botton_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_consultarActionPerformed
         consultar();
     }//GEN-LAST:event_Botton_consultarActionPerformed
+
+    private void Botton_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_AtualizarActionPerformed
+        update_motorista();
+        
+        dispose();
+    }//GEN-LAST:event_Botton_AtualizarActionPerformed
 
    
     public static void main(String args[]) {
