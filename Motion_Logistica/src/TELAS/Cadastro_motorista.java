@@ -21,6 +21,12 @@ public class Cadastro_motorista extends javax.swing.JFrame {
        private Connection conn;
        private Conexao conexao;
        
+    public void conexao_cadastrar(){
+     this.conexao = new Conexao();
+     this.conn = this.conexao.mt_Conexao();
+    }
+
+       
        Motorista motorista = new Motorista(); //acessar os atributos da classe Motorista
        
     
@@ -82,6 +88,36 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         }
     }
     
+    public void consultar (){
+    
+        String sql = "select * from motorista where id = ?;";
+        ResultSet rs;
+        
+        try { 
+            PreparedStatement pst3 = this.conn.prepareStatement(sql);
+            pst3.setString(1, Caixa_codigo.getText());
+            rs = pst3.executeQuery();
+            
+            if (rs.next()) {
+                
+              Caixa_nome1.setText(rs.getString(2));
+              Caixa_telefone.setText(rs.getString(3));
+              
+      
+            } else {
+                JOptionPane.showMessageDialog(null,"Motorista não encontrado");
+                
+              Caixa_nome1.setText(null);
+              Caixa_telefone.setText(null);
+              
+            }
+     
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro em metodo CONSULTAR");
+            System.out.println(e);
+        }
+    }
+    
     
     private void tabela_motorista(){
     
@@ -117,6 +153,25 @@ public class Cadastro_motorista extends javax.swing.JFrame {
      
     }
     
+    
+    public void update_motorista (){
+   
+        String sql = "update motorista set nome = ?, telefone = ?, "
+                      + "where codigo = ?; ";
+        try {
+            PreparedStatement pst = this.conn.prepareStatement(sql);
+            pst.setString(1, Caixa_nome1.getText());
+            pst.setString(2, Caixa_telefone.getText());
+            pst.setInt(3, Integer.parseInt(Caixa_codigo.getText()));
+            pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Motorista atualizado com sucesso");
+            
+        } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,"Erro em  UPDATE Motorista");
+        }  
+    }
+    
 
    
     @SuppressWarnings("unchecked")
@@ -138,6 +193,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Botton_Atualizar = new javax.swing.JButton();
         Botton_deletar = new javax.swing.JButton();
+        Botton_consultar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
@@ -251,7 +307,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(50, 320, 470, 90);
         jPanel2.add(Caixa_codigo);
-        Caixa_codigo.setBounds(100, 170, 420, 19);
+        Caixa_codigo.setBounds(100, 170, 400, 19);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nome:");
@@ -270,6 +326,15 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         });
         jPanel2.add(Botton_deletar);
         Botton_deletar.setBounds(260, 260, 68, 25);
+
+        Botton_consultar.setText("P");
+        Botton_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botton_consultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Botton_consultar);
+        Botton_consultar.setBounds(510, 170, 30, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,6 +376,10 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Botton_deletarActionPerformed
 
+    private void Botton_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_consultarActionPerformed
+        consultar();
+    }//GEN-LAST:event_Botton_consultarActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -347,6 +416,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Botton_Atualizar;
+    private javax.swing.JButton Botton_consultar;
     private javax.swing.JButton Botton_deletar;
     private javax.swing.JTextField Caixa_codigo;
     private javax.swing.JTextField Caixa_nome1;
