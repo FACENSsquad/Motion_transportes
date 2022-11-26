@@ -5,7 +5,9 @@ import BEANS.Motorista;
 import CONEXAO.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Cadastro_motorista extends javax.swing.JFrame {
 
@@ -13,6 +15,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
        
     public Cadastro_motorista() {
         initComponents();
+        tabela_motorista();
     }
     
        private Connection conn;
@@ -39,7 +42,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             pst.setString(2, motorista.getTelefone());
            
             pst.execute();
-            
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
             
         } catch (Exception e) {
             
@@ -48,11 +51,72 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             
         } finally {
             this.conexao.fecha_mt();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+            
         }
-    
-        
+
     }
+    
+    
+    public void delete(){
+        
+        int confirmar;
+        String message = "Deseja realmente remover este cliente?";
+        
+        confirmar = JOptionPane.showConfirmDialog(null, message);
+       
+        
+        if(confirmar == JOptionPane.YES_OPTION){
+            
+        String sql = "delete from motorista where codigo = ?";
+        try {
+             PreparedStatement pst = this.conn.prepareStatement(sql);
+             pst.setString(1, Caixa_codigo.getText());
+             pst.executeUpdate();
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro em metodo DELETE motorista");
+        }
+    } else if(confirmar == JOptionPane.NO_OPTION) {
+     dispose();
+        }
+    }
+    
+    
+    private void tabela_motorista(){
+    
+     DefaultTableModel model = (DefaultTableModel) Table_motorista.getModel(); //criando tabela
+     model.setNumRows(0);   // listar tabela apartir de
+    
+     Table_motorista.getColumnModel().getColumn(0).setPreferredWidth(10);
+     Table_motorista.getColumnModel().getColumn(1).setPreferredWidth(10);
+     Table_motorista.getColumnModel().getColumn(2).setPreferredWidth(10);
+    
+        try {
+            
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select * from motorista");  // passando conexao para pst
+           rs = pst.executeQuery();
+           
+            while (rs.next()) {
+                
+            
+                model.addRow(new Object[]{
+                   rs.getInt(1),
+                   rs.getString(2),
+                   rs.getString(3),
+                
+            });
+          } 
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar Tabela Motorista.");
+        }
+     
+    }
+    
 
    
     @SuppressWarnings("unchecked")
@@ -66,11 +130,14 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jbutton1 = new javax.swing.JButton();
-        descrição = new javax.swing.JLabel();
-        BD_qtdMOTO = new javax.swing.JLabel();
-        dash = new javax.swing.JLabel();
         Caixa_telefone = new javax.swing.JTextField();
         Caixa_nome1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table_motorista = new javax.swing.JTable();
+        Caixa_codigo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        Botton_Atualizar = new javax.swing.JButton();
+        Botton_deletar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
@@ -81,14 +148,14 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.setLayout(null);
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nome:");
+        jLabel1.setText("Codigo:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(50, 110, 40, 20);
+        jLabel1.setBounds(50, 170, 40, 20);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Telefone:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(310, 110, 60, 16);
+        jLabel2.setBounds(310, 110, 60, 15);
 
         cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
@@ -101,7 +168,7 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cadastrar);
-        cadastrar.setBounds(580, 390, 97, 38);
+        cadastrar.setBounds(430, 250, 97, 38);
 
         jPanel1.setBackground(new java.awt.Color(217, 217, 217));
         jPanel1.setPreferredSize(new java.awt.Dimension(645, 30));
@@ -141,28 +208,13 @@ public class Cadastro_motorista extends javax.swing.JFrame {
         jPanel2.add(jbutton1);
         jbutton1.setBounds(660, 10, 31, 26);
 
-        descrição.setForeground(new java.awt.Color(0, 0, 0));
-        descrição.setText("Quantidade de motoristas cadastrados:");
-        jPanel2.add(descrição);
-        descrição.setBounds(80, 230, 200, 16);
-
-        BD_qtdMOTO.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BD_qtdMOTO.setForeground(new java.awt.Color(0, 0, 0));
-        BD_qtdMOTO.setText("150");
-        jPanel2.add(BD_qtdMOTO);
-        BD_qtdMOTO.setBounds(110, 260, 40, 30);
-
-        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/dash_p.png"))); // NOI18N
-        jPanel2.add(dash);
-        dash.setBounds(80, 250, 100, 50);
-
         Caixa_telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Caixa_telefoneActionPerformed(evt);
             }
         });
         jPanel2.add(Caixa_telefone);
-        Caixa_telefone.setBounds(370, 110, 150, 22);
+        Caixa_telefone.setBounds(370, 110, 150, 19);
 
         Caixa_nome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +222,54 @@ public class Cadastro_motorista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Caixa_nome1);
-        Caixa_nome1.setBounds(90, 110, 150, 22);
+        Caixa_nome1.setBounds(90, 110, 150, 19);
+
+        Table_motorista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo", "Nome", "Telefone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(Table_motorista);
+        if (Table_motorista.getColumnModel().getColumnCount() > 0) {
+            Table_motorista.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 320, 470, 90);
+        jPanel2.add(Caixa_codigo);
+        Caixa_codigo.setBounds(100, 170, 420, 19);
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nome:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(50, 110, 40, 20);
+
+        Botton_Atualizar.setText("Atualizar");
+        jPanel2.add(Botton_Atualizar);
+        Botton_Atualizar.setBounds(70, 260, 77, 25);
+
+        Botton_deletar.setText("Deletar");
+        Botton_deletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Botton_deletarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Botton_deletar);
+        Botton_deletar.setBounds(260, 260, 68, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,14 +284,9 @@ public class Cadastro_motorista extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        setSize(new java.awt.Dimension(702, 482));
+        setSize(new java.awt.Dimension(702, 450));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        Cadastrar_Motorista(motorista);
-        this.dispose();
-    }//GEN-LAST:event_cadastrarActionPerformed
 
     private void jbutton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton1ActionPerformed
             this.setVisible(false);
@@ -205,6 +299,17 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     private void Caixa_nome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caixa_nome1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Caixa_nome1ActionPerformed
+
+    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+        Cadastrar_Motorista(motorista);
+        this.dispose();
+    }//GEN-LAST:event_cadastrarActionPerformed
+
+    private void Botton_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botton_deletarActionPerformed
+        delete();
+        
+        dispose();
+    }//GEN-LAST:event_Botton_deletarActionPerformed
 
    
     public static void main(String args[]) {
@@ -241,17 +346,20 @@ public class Cadastro_motorista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BD_qtdMOTO;
+    private javax.swing.JButton Botton_Atualizar;
+    private javax.swing.JButton Botton_deletar;
+    private javax.swing.JTextField Caixa_codigo;
     private javax.swing.JTextField Caixa_nome1;
     private javax.swing.JTextField Caixa_telefone;
+    private javax.swing.JTable Table_motorista;
     private javax.swing.JButton cadastrar;
-    private javax.swing.JLabel dash;
-    private javax.swing.JLabel descrição;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbutton1;
     // End of variables declaration//GEN-END:variables
 }
