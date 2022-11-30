@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Cadastro_cliente extends javax.swing.JFrame {
 
     public Cadastro_cliente() {
         initComponents();
+        tabela_cliente();
     }
 
     private Connection conn;
@@ -187,6 +189,56 @@ public class Cadastro_cliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Erro em metodo CONSULTAR");
             System.out.println(e);
         }
+    }
+    
+    private void tabela_cliente(){
+    
+     DefaultTableModel model = (DefaultTableModel) Table_cliente.getModel(); //criando tabela
+     model.setNumRows(0);   // listar tabela apartir de
+    
+     Table_cliente.getColumnModel().getColumn(0).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(1).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(2).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(3).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(4).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(5).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(6).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(7).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(8).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(9).setPreferredWidth(10);
+     Table_cliente.getColumnModel().getColumn(10).setPreferredWidth(10);
+    
+        try {
+            
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select * from cliente");  // passando conexao para pst
+           rs = pst.executeQuery();
+           
+            while (rs.next()) {
+                
+            
+                model.addRow(new Object[]{
+                   rs.getInt(1),
+                   rs.getString(2),
+                   rs.getString(3),
+                   rs.getString(4),
+                   rs.getString(5),
+                   rs.getString(6),
+                   rs.getString(7),
+                   rs.getString(8),
+                   rs.getString(9),
+                   rs.getString(10),
+                   rs.getString(11),
+                
+            });
+          } 
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar Tabela Motorista.");
+        }
+     
     }
     
    

@@ -55,12 +55,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -109,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MotiON");
         jPanel4.add(jLabel2);
-        jLabel2.setBounds(0, 630, 260, 170);
+        jLabel2.setBounds(0, 160, 270, 90);
 
         jPanel1.setBackground(new java.awt.Color(217, 217, 217));
         jPanel1.setPreferredSize(new java.awt.Dimension(645, 30));
@@ -135,15 +131,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.add(jPanel1);
         jPanel1.setBounds(40, 10, 200, 30);
 
-        jButton2.setText("CADASTRAR VEICULOS");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton2);
-        jButton2.setBounds(10, 240, 240, 30);
-
         jButton3.setText("CADASTRAR DESTINO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +138,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton3);
-        jButton3.setBounds(10, 160, 240, 30);
+        jButton3.setBounds(40, 70, 200, 30);
 
         jButton4.setText("CADASTRAR MOTORISTA");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -160,39 +147,12 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton4);
-        jButton4.setBounds(10, 200, 240, 30);
-
-        jButton5.setText("REMOVER DESTINO");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton5);
-        jButton5.setBounds(10, 290, 240, 30);
-
-        jButton6.setText("REMOVER MOTORISTA");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton6);
-        jButton6.setBounds(10, 330, 240, 30);
-
-        jButton8.setText("REMOVER VEICULOS");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton8);
-        jButton8.setBounds(10, 370, 240, 30);
+        jButton4.setBounds(40, 120, 200, 30);
 
         getContentPane().add(jPanel4);
         jPanel4.setBounds(0, 0, 270, 800);
 
-        setBounds(1200, 100, 268, 738);
+        setBounds(1200, 100, 268, 256);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_fecharActionPerformed
@@ -210,25 +170,6 @@ public class Menu extends javax.swing.JFrame {
        motorista.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Cadastro_veiculo veiculo = new Cadastro_veiculo();
-       veiculo.setVisible(true);
-       this.setVisible(false);
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,12 +212,8 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_fechar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
