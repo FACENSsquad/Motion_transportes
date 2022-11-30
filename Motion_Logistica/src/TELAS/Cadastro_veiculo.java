@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import BEANS.Veiculo;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 public class Cadastro_veiculo extends javax.swing.JFrame {
 
@@ -14,6 +16,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
        
     public Cadastro_veiculo() {
         initComponents();
+        tabela_veiculo();
     }
     
        private Connection conn;
@@ -54,7 +57,40 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
     
         
     }
-
+    
+private void tabela_veiculo(){
+    
+     DefaultTableModel model = (DefaultTableModel) Table_veiculo.getModel(); //criando tabela
+     model.setNumRows(0);   // listar tabela apartir de
+    
+     Table_veiculo.getColumnModel().getColumn(0).setPreferredWidth(10);
+     Table_veiculo.getColumnModel().getColumn(1).setPreferredWidth(10);
+     
+    
+        try {
+            
+           Connection conn = new Conexao().mt_Conexao(); // estabelecendo conexao 
+           PreparedStatement pst;  
+           ResultSet rs;
+           
+           pst = conn.prepareStatement("select * from veiculo");  // passando conexao para pst
+           rs = pst.executeQuery();
+           
+            while (rs.next()) {
+                
+            
+                model.addRow(new Object[]{
+                   rs.getString(1),
+                   rs.getString(2),
+                   
+                
+            });
+          } 
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar Tabela de Veiculos.");
+        }
+     
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,11 +103,10 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        descrição = new javax.swing.JLabel();
-        BD_qtdMOTO = new javax.swing.JLabel();
-        dash = new javax.swing.JLabel();
         veiculoss = new javax.swing.JComboBox<>();
         Caixa_nome = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table_veiculo = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
@@ -89,7 +124,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Veiculo:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(310, 110, 60, 16);
+        jLabel2.setBounds(310, 110, 60, 15);
 
         Cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botaosalvar.png"))); // NOI18N
@@ -102,7 +137,7 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Cadastrar);
-        Cadastrar.setBounds(580, 390, 97, 38);
+        Cadastrar.setBounds(540, 220, 97, 38);
 
         jPanel1.setBackground(new java.awt.Color(217, 217, 217));
         jPanel1.setPreferredSize(new java.awt.Dimension(645, 30));
@@ -142,21 +177,6 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(660, 10, 31, 26);
 
-        descrição.setForeground(new java.awt.Color(0, 0, 0));
-        descrição.setText("Quantidade de motoristas cadastrados:");
-        jPanel2.add(descrição);
-        descrição.setBounds(80, 230, 200, 16);
-
-        BD_qtdMOTO.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BD_qtdMOTO.setForeground(new java.awt.Color(0, 0, 0));
-        BD_qtdMOTO.setText("734");
-        jPanel2.add(BD_qtdMOTO);
-        BD_qtdMOTO.setBounds(110, 260, 40, 30);
-
-        dash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/dash_p.png"))); // NOI18N
-        jPanel2.add(dash);
-        dash.setBounds(80, 250, 100, 50);
-
         veiculoss.setBackground(new java.awt.Color(255, 255, 255));
         veiculoss.setForeground(new java.awt.Color(0, 0, 0));
         veiculoss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caminhão", "Carro", "Van", "Moto" }));
@@ -166,7 +186,35 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
         jPanel2.add(veiculoss);
         veiculoss.setBounds(360, 110, 100, 20);
         jPanel2.add(Caixa_nome);
-        Caixa_nome.setBounds(90, 110, 170, 22);
+        Caixa_nome.setBounds(90, 110, 170, 19);
+
+        Table_veiculo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Placa", "Veiculo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(Table_veiculo);
+        if (Table_veiculo.getColumnModel().getColumnCount() > 0) {
+            Table_veiculo.getColumnModel().getColumn(0).setResizable(false);
+            Table_veiculo.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 180, 450, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,10 +226,10 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(702, 482));
+        setSize(new java.awt.Dimension(702, 328));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,17 +279,16 @@ public class Cadastro_veiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BD_qtdMOTO;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField Caixa_nome;
-    private javax.swing.JLabel dash;
-    private javax.swing.JLabel descrição;
+    private javax.swing.JTable Table_veiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> veiculoss;
     // End of variables declaration//GEN-END:variables
 }
