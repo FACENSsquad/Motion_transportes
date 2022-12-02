@@ -332,6 +332,7 @@ public class Home extends javax.swing.JFrame {
         Status_descarga3 = new javax.swing.JButton();
         Status_descarga = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         botaoRemovePlaca = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         Transito = new javax.swing.JTable();
@@ -348,8 +349,8 @@ public class Home extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         Alerta = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
         botaoRemovePlaca1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -365,55 +366,41 @@ public class Home extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 750));
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1280, 44));
+        jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Usuario:");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(590, 0, 54, 40);
 
         usuario.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         usuario.setForeground(new java.awt.Color(51, 51, 51));
         usuario.setText("teste");
+        jPanel2.add(usuario);
+        usuario.setBounds(662, 0, 32, 40);
 
         logo.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         logo.setText("MotiON");
+        jPanel2.add(logo);
+        logo.setBounds(23, 7, 48, 30);
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_menu.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(logo)
-                .addGap(519, 519, 519)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(usuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 507, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2))
-                .addContainerGap())
-        );
+        jPanel2.add(jButton2);
+        jButton2.setBounds(1201, 0, 68, 40);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 1280, 44);
@@ -422,43 +409,57 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 55));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 55));
 
+        Status_transito.setBackground(new java.awt.Color(255, 255, 255));
         Status_transito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_veiculos.png"))); // NOI18N
         Status_transito.setBorderPainted(false);
+        Status_transito.setContentAreaFilled(false);
         Status_transito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Status_transitoActionPerformed(evt);
             }
         });
 
+        Status_coletando.setBackground(new java.awt.Color(255, 255, 255));
         Status_coletando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_transito.png"))); // NOI18N
         Status_coletando.setBorderPainted(false);
+        Status_coletando.setContentAreaFilled(false);
 
+        Status_destino.setBackground(new java.awt.Color(255, 255, 255));
         Status_destino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_coletando.png"))); // NOI18N
         Status_destino.setBorderPainted(false);
+        Status_destino.setContentAreaFilled(false);
 
+        Status_descarga1.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_destino.png"))); // NOI18N
         Status_descarga1.setBorderPainted(false);
+        Status_descarga1.setContentAreaFilled(false);
 
+        Status_descarga2.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_descarga.png"))); // NOI18N
         Status_descarga2.setBorderPainted(false);
+        Status_descarga2.setContentAreaFilled(false);
         Status_descarga2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Status_descarga2ActionPerformed(evt);
             }
         });
 
+        Status_descarga3.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_finalizado.png"))); // NOI18N
         Status_descarga3.setBorderPainted(false);
+        Status_descarga3.setContentAreaFilled(false);
 
+        Status_descarga.setBackground(new java.awt.Color(255, 255, 255));
         Status_descarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/status_alerta.png"))); // NOI18N
         Status_descarga.setBorderPainted(false);
+        Status_descarga.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(25, 25, 25)
                 .addComponent(Status_transito, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Status_coletando, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -472,20 +473,21 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(Status_descarga3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Status_descarga, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Status_descarga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Status_coletando, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Status_destino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Status_descarga1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Status_descarga, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Status_descarga3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Status_descarga2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Status_descarga3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Status_transito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Status_descarga1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Status_destino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Status_coletando, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(Status_transito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -497,10 +499,20 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 695));
         jPanel3.setLayout(null);
 
+        jToggleButton1.setText("Atribuir status");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jToggleButton1);
+        jToggleButton1.setBounds(1140, 520, 110, 50);
+
         botaoRemovePlaca.setBackground(new java.awt.Color(255, 255, 255));
         botaoRemovePlaca.setForeground(new java.awt.Color(51, 255, 51));
         botaoRemovePlaca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/atualizar.png"))); // NOI18N
         botaoRemovePlaca.setBorderPainted(false);
+        botaoRemovePlaca.setContentAreaFilled(false);
         botaoRemovePlaca.setFocusCycleRoot(true);
         botaoRemovePlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -508,8 +520,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(botaoRemovePlaca);
-        botaoRemovePlaca.setBounds(0, 110, 32, 31);
+        botaoRemovePlaca.setBounds(1100, 540, 32, 31);
 
+        Transito.setBackground(new java.awt.Color(255, 255, 255));
+        Transito.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Transito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -549,7 +563,7 @@ public class Home extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Transito", "1", "2"
+                "", "1", "2"
             }
         ) {
             Class[] types = new Class [] {
@@ -568,8 +582,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Transito.setToolTipText("");
+        Transito.setGridColor(new java.awt.Color(255, 255, 255));
+        Transito.setRowHeight(25);
         Transito.setRowSelectionAllowed(false);
-        Transito.setShowGrid(true);
+        Transito.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Transito.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Transito.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Transito);
         if (Transito.getColumnModel().getColumnCount() > 0) {
@@ -579,8 +596,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(220, 0, 160, 450);
+        jScrollPane2.setBounds(220, 0, 160, 570);
 
+        Veiculos.setBackground(new java.awt.Color(255, 255, 255));
+        Veiculos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Veiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -620,7 +639,7 @@ public class Home extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Veículos"
+                ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -632,8 +651,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Veiculos.setToolTipText("");
+        Veiculos.setGridColor(new java.awt.Color(255, 255, 255));
+        Veiculos.setPreferredSize(new java.awt.Dimension(100, 560));
+        Veiculos.setRowHeight(25);
         Veiculos.setRowSelectionAllowed(false);
-        Veiculos.setShowGrid(true);
+        Veiculos.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        Veiculos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Veiculos.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(Veiculos);
         if (Veiculos.getColumnModel().getColumnCount() > 0) {
@@ -641,8 +664,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 0, 160, 450);
+        jScrollPane3.setBounds(10, 40, 190, 530);
 
+        Coletando.setBackground(new java.awt.Color(255, 255, 255));
+        Coletando.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Coletando.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -682,7 +707,7 @@ public class Home extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Coletando", "1", "2"
+                "", "1", "2"
             }
         ) {
             Class[] types = new Class [] {
@@ -701,8 +726,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Coletando.setToolTipText("");
+        Coletando.setGridColor(new java.awt.Color(255, 255, 255));
+        Coletando.setRowHeight(25);
         Coletando.setRowSelectionAllowed(false);
-        Coletando.setShowGrid(true);
+        Coletando.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Coletando.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Coletando.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(Coletando);
         if (Coletando.getColumnModel().getColumnCount() > 0) {
@@ -712,8 +740,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane4);
-        jScrollPane4.setBounds(400, 0, 160, 450);
+        jScrollPane4.setBounds(400, 0, 160, 570);
 
+        Destino.setBackground(new java.awt.Color(255, 255, 255));
+        Destino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Destino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -753,7 +783,7 @@ public class Home extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Destino", "1", "2"
+                "", "1", "2"
             }
         ) {
             Class[] types = new Class [] {
@@ -772,8 +802,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Destino.setToolTipText("");
+        Destino.setGridColor(new java.awt.Color(255, 255, 255));
+        Destino.setRowHeight(25);
         Destino.setRowSelectionAllowed(false);
-        Destino.setShowGrid(true);
+        Destino.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Destino.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Destino.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(Destino);
         if (Destino.getColumnModel().getColumnCount() > 0) {
@@ -781,8 +814,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane6);
-        jScrollPane6.setBounds(580, 0, 150, 450);
+        jScrollPane6.setBounds(580, 0, 150, 570);
 
+        Descarga.setBackground(new java.awt.Color(255, 255, 255));
+        Descarga.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Descarga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -822,7 +857,7 @@ public class Home extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Descarga", "1", "2"
+                "", "1", "2"
             }
         ) {
             Class[] types = new Class [] {
@@ -841,8 +876,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Descarga.setToolTipText("");
+        Descarga.setGridColor(new java.awt.Color(255, 255, 255));
+        Descarga.setRowHeight(25);
         Descarga.setRowSelectionAllowed(false);
-        Descarga.setShowGrid(true);
+        Descarga.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Descarga.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Descarga.getTableHeader().setReorderingAllowed(false);
         jScrollPane7.setViewportView(Descarga);
         if (Descarga.getColumnModel().getColumnCount() > 0) {
@@ -852,8 +890,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane7);
-        jScrollPane7.setBounds(750, 0, 150, 450);
+        jScrollPane7.setBounds(750, 0, 150, 570);
 
+        Finalizado.setBackground(new java.awt.Color(255, 255, 255));
+        Finalizado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Finalizado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -893,7 +933,7 @@ public class Home extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Finalizado"
+                ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -905,8 +945,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Finalizado.setToolTipText("");
+        Finalizado.setGridColor(new java.awt.Color(255, 255, 255));
+        Finalizado.setRowHeight(25);
         Finalizado.setRowSelectionAllowed(false);
-        Finalizado.setShowGrid(true);
+        Finalizado.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Finalizado.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Finalizado.getTableHeader().setReorderingAllowed(false);
         jScrollPane8.setViewportView(Finalizado);
         if (Finalizado.getColumnModel().getColumnCount() > 0) {
@@ -914,8 +957,10 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane8);
-        jScrollPane8.setBounds(920, 0, 150, 450);
+        jScrollPane8.setBounds(920, 0, 150, 570);
 
+        Alerta.setBackground(new java.awt.Color(255, 255, 255));
+        Alerta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Alerta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -955,7 +1000,7 @@ public class Home extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Alerta"
+                ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -967,8 +1012,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         Alerta.setToolTipText("");
+        Alerta.setGridColor(new java.awt.Color(255, 255, 255));
+        Alerta.setRowHeight(25);
         Alerta.setRowSelectionAllowed(false);
-        Alerta.setShowGrid(true);
+        Alerta.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Alerta.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Alerta.getTableHeader().setReorderingAllowed(false);
         jScrollPane9.setViewportView(Alerta);
         if (Alerta.getColumnModel().getColumnCount() > 0) {
@@ -976,8 +1024,9 @@ public class Home extends javax.swing.JFrame {
         }
 
         jPanel3.add(jScrollPane9);
-        jScrollPane9.setBounds(1100, 0, 150, 450);
+        jScrollPane9.setBounds(1100, 0, 150, 510);
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_addPlaca.png"))); // NOI18N
         jButton3.setBorderPainted(false);
         jButton3.setFocusCycleRoot(true);
@@ -987,17 +1036,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton3);
-        jButton3.setBounds(0, 10, 32, 31);
+        jButton3.setBounds(10, 0, 32, 31);
 
-        jToggleButton1.setText("Atribuir status");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jToggleButton1);
-        jToggleButton1.setBounds(40, 470, 160, 50);
-
+        botaoRemovePlaca1.setBackground(new java.awt.Color(255, 255, 255));
         botaoRemovePlaca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/botao_removePlaca.png"))); // NOI18N
         botaoRemovePlaca1.setBorderPainted(false);
         botaoRemovePlaca1.setFocusCycleRoot(true);
@@ -1007,7 +1048,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(botaoRemovePlaca1);
-        botaoRemovePlaca1.setBounds(0, 60, 32, 31);
+        botaoRemovePlaca1.setBounds(170, 0, 32, 31);
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jTextField1);
+        jTextField1.setBounds(42, 2, 127, 27);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 120, 1280, 685);
@@ -1137,6 +1183,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel usuario;

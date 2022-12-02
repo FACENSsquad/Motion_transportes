@@ -75,7 +75,6 @@ public class Menu extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setFocusable(false);
         setFocusableWindowState(false);
-        setMaximumSize(new java.awt.Dimension(200, 800));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
@@ -152,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jPanel4);
         jPanel4.setBounds(0, 0, 270, 800);
 
-        setBounds(1200, 100, 268, 256);
+        setBounds(1200, 100, 256, 256);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_fecharActionPerformed
